@@ -1,4 +1,7 @@
 class BookingsController < ApplicationController
+  # TOTO Secure root when auth is ready
+  skip_before_action :authenticate_user!, only: [ :create, :edit, :show, :destroy ]
+
   def create
     # Booking form sent here
 

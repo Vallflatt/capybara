@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+  # TOTO Secure root when auth is ready
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
+
   def index
   end
 
