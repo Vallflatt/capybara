@@ -8,11 +8,13 @@
 require 'faker'
 #Booking.destroy_all if Rails.env.development?
 #Article.destroy_all if Rails.env.development?
-Article.destroy_all if Rails.env.development?
-User.destroy_all if Rails.env.development?
+Booking.destroy_all
+Article.destroy_all
+User.destroy_all
+
 puts "after destroy"
 
-puts "count user: #{User.count}"
+#puts "count user: #{User.count}"
 #puts "count booking: #{Booking.count}"
 #puts "count article: #{Article.count}"
 
@@ -29,20 +31,21 @@ bibi = User.create!(
 )
 
 faked = []
-18.times do
+5.times do
   faked.push(User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.username,
     password: '123456'
   ))
 end
+
 puts "count user: #{User.count}"
 
 # -------------------------------
 #       Article seeder
 # -------------------------------
 
-Article.create!(
+perceuse = Article.create!(
   image_url: 'https://www.bmr.ca/media/catalog/product/cache/379dce1ac14addf86945d9e587ff6b15/0/6/068-3441_001_1.jpg',
   name: 'perceuse/visseuse 18V Bosch',
   description: 'Cette perceuse-visseuse fiable et efficace vous accompagnera dans tous vos travaux.',
@@ -53,7 +56,7 @@ Article.create!(
   user: vallflatt
 )
 
-Article.create!(
+escabeau = Article.create!(
   image_url: 'https://images.kkeu.de/is/image/BEG/%C3%89chelles_et_%C3%A9chafaudages/Escabeaux/Escabeau_%C3%A0_marches_acc%C3%A8s_un_c%C3%B4t%C3%A9_pdplarge-mrd--945300_AFS_00_00_00_9897135.jpg?wid=390&hei=390',
   name: 'escabeau à marches EUROKRAFTpro',
   description: "Montants et marches indéformables en profilés d'aluminium. Sertissage multiple robuste. Distance entre marches 235 mm.
@@ -85,7 +88,7 @@ Article.create!(
   city: 'Lausanne',
   zipcode: 1004,
   available: true,
-  user: vallflatt
+  user: faked.sample
 )
 
 Article.create!(
@@ -96,7 +99,7 @@ Article.create!(
   city: 'Prilly',
   zipcode: 1008,
   available: true,
-  user: vallflatt
+  user: faked.sample
 )
 
 Article.create!(
@@ -107,7 +110,7 @@ Article.create!(
   city: 'Prilly',
   zipcode: 1008,
   available: true,
-  user: vallflatt
+  user: faked.sample
 )
 
 Article.create!(
@@ -118,9 +121,53 @@ Article.create!(
   city: 'Pully',
   zipcode: 1009,
   available: true,
-  user: vallflatt
+  user: faked.sample
 )
 
 puts "count article: #{Article.count}"
 
-#puts "count booking: #{Booking.count}"
+# -------------------------------
+#       Booking seeder
+# -------------------------------
+
+Booking.create!(
+  start_date: "2023-03-15",
+  end_date: "2023-03-16",
+  status: :confirmed,
+  user: bibi,
+  article: perceuse
+)
+
+Booking.create!(
+  start_date: "2023-03-25",
+  end_date: "2023-03-27",
+  status: :pending,
+  user: bibi,
+  article: perceuse
+)
+
+Booking.create!(
+  start_date: "2023-01-25",
+  end_date: "2023-01-27",
+  status: :finished,
+  user: bibi,
+  article: perceuse
+)
+
+Booking.create!(
+  start_date: "2023-04-02",
+  end_date: "2023-04-05",
+  status: :confirmed,
+  user: faked.sample,
+  article: escabeau
+)
+
+Booking.create!(
+  start_date: "2023-05-01",
+  end_date: "2023-05-03",
+  status: :declined,
+  user: faked.sample,
+  article: escabeau
+)
+
+puts "count booking: #{Booking.count}"
