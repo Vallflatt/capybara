@@ -8,6 +8,7 @@
 require 'faker'
 #Booking.destroy_all if Rails.env.development?
 #Article.destroy_all if Rails.env.development?
+Article.destroy_all if Rails.env.development?
 User.destroy_all if Rails.env.development?
 puts "after destroy"
 
