@@ -1,0 +1,137 @@
+<h1>Borrowed and Lent</h1>
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-borrowed-tab" data-bs-toggle="tab" data-bs-target="#nav-borrowed" type="button" role="tab" aria-controls="nav-borrowed" aria-selected="true">Borrowed</button>
+    <button class="nav-link" id="nav-lent-tab" data-bs-toggle="tab" data-bs-target="#nav-lent" type="button" role="tab" aria-controls="nav-lent" aria-selected="false">Lent</button>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-borrowed" role="tabpanel" aria-labelledby="nav-borrowed-tab">
+    <div class="row">
+      <% pendings =  @borrowed.select{ |booking| booking["status"] == "pending" }%>
+      <% confirmed =  @borrowed.select{ |booking| booking["status"] == "confirmed" }%>
+      <% finished =  @borrowed.select{ |booking| booking["status"] == "finished" }%>
+      <% declined =  @borrowed.select{ |booking| booking["status"] == "declined" }%>
+      <h3>Pending</h3>
+      <% pendings.each do |booking| %>
+        <div class="col-12 col-md-6">
+          <div class="carousel-item-container">
+            <div class="w-50">
+              <img src="<%= booking.article.image_url%>" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item-info">
+              <div class="carousel-item-name"><%= booking.article.name%></div>
+              <div class="carousel-item-description"><%= booking.article.description%></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <h3>Confirmed</h3>
+      <% confirmed.each do |booking| %>
+        <div class="col-12 col-md-6">
+          <div class="carousel-item-container">
+            <div class="w-50">
+              <img src="<%= booking.article.image_url%>" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item-info">
+              <div class="carousel-item-name"><%= booking.article.name%></div>
+              <div class="carousel-item-description"><%= booking.article.description%></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <h3>Declined</h3>
+      <% declined.each do |booking| %>
+        <div class="col-12 col-md-6">
+          <div class="carousel-item-container">
+            <div class="w-50">
+              <img src="<%= booking.article.image_url%>" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item-info">
+              <div class="carousel-item-name"><%= booking.article.name%></div>
+              <div class="carousel-item-description"><%= booking.article.description%></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <h3>Finished</h3>
+      <% finished.each do |booking| %>
+        <div class="col-12 col-md-6">
+          <div class="carousel-item-container">
+            <div class="w-50">
+              <img src="<%= booking.article.image_url%>" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item-info">
+              <div class="carousel-item-name"><%= booking.article.name%></div>
+              <div class="carousel-item-description"><%= booking.article.description%></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="nav-lent" role="tabpanel" aria-labelledby="nav-lent-tab">
+    <div class="row">
+      <% pendings =  @lent.select{ |booking| booking["status"] == "pending" }%>
+      <% confirmed =  @lent.select{ |booking| booking["status"] == "confirmed" }%>
+      <% finished =  @lent.select{ |booking| booking["status"] == "finished" }%>
+      <% declined =  @lent.select{ |booking| booking["status"] == "declined" }%>
+      <h3>Pending</h3>
+      <% pendings.each do |booking| %>
+        <div class="col-12 col-md-6">
+          <div class="carousel-item-container">
+            <div class="w-50">
+              <img src="<%= booking.article.image_url%>" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item-info">
+              <div class="carousel-item-name"><%= booking.article.name%></div>
+              <div class="carousel-item-description"><%= booking.article.description%></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <h3>Confirmed</h3>
+      <% confirmed.each do |booking| %>
+        <div class="col-12 col-md-6">
+          <div class="carousel-item-container">
+            <div class="w-50">
+              <img src="<%= booking.article.image_url%>" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item-info">
+              <div class="carousel-item-name"><%= booking.article.name%></div>
+              <div class="carousel-item-description"><%= booking.article.description%></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <h3>Declined</h3>
+      <% declined.each do |booking| %>
+        <div class="col-12 col-md-6">
+          <div class="carousel-item-container">
+            <div class="w-50">
+              <img src="<%= booking.article.image_url%>" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item-info">
+              <div class="carousel-item-name"><%= booking.article.name%></div>
+              <div class="carousel-item-description"><%= booking.article.description%></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <h3>Finished</h3>
+      <% finished.each do |booking| %>
+        <div class="col-12 col-md-6">
+          <div class="carousel-item-container">
+            <div class="w-50">
+              <img src="<%= booking.article.image_url%>" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item-info">
+              <div class="carousel-item-name"><%= booking.article.name%></div>
+              <div class="carousel-item-description"><%= booking.article.description%></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
