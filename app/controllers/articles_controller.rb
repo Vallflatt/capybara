@@ -15,8 +15,20 @@ class ArticlesController < ApplicationController
     # Fetch DB with LIKE search param and NEAR coordinates Load the result instance variable
     if @search != '' && !location.nil?
       @articles = Article.where("name ILIKE ?", "%#{@search}%").near([location["lat"], location["lon"]], 30)
+    else
+      @articles = Article.all
     end
     # Do the view
+
+    # The `geocoded` scope filters only flats with coordinates
+    @markers = @articles.map do |article|
+      {
+        lat: article.latitude,
+        lng: article.longitude,
+        info_window_html: render_to_string(partial: "info_popup", locals: {article: article})
+      }
+    end
+    @markers = @markers.to_json
   end
 
   def show

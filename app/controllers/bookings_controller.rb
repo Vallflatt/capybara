@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
   def new
     #récupérer le username pour afficher sur vue
     @article.user[:username]
-    #récupérer l'article image_url pour afficher sur vue
+    # récupérer l'article image_url pour afficher sur vue
     @booking = Booking.new
     # booking/new afficher l'article et le formulaire de booking
   end
@@ -38,7 +38,11 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+  end
 
+  def index
+    @borrowed = Booking.where(user: current_user).all
+    @lent = Booking.joins(:article).where(article: { user: current_user })
   end
 
   private

@@ -1,0 +1,25 @@
+.carousel-item-container {
+  width: 100%;
+  display: flex;
+
+  .carousel-item-info {
+    width: 50%;
+    padding: .5rem;
+  }
+
+  .carousel-item-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+  }
+
+  .carousel-item-description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 3.3em;
+    word-wrap: break-word;
+    display: block;
+    line-height: 1.1em;
+  }
+}
