@@ -1,20 +1,20 @@
 class BookingsController < ApplicationController
-  # TODO Secure root when auth is ready
-  skip_before_action :authenticate_user!, only: [:new, :show]
+  # TODO: Secure root when auth is ready
+  skip_before_action :authenticate_user!, only: %i[new show]
 
   def new
-    #récupérer l'article id
+    # récupérer l'article id
     @article = Article.find(params[:article_id])
-    #récupérer le username pour afficher sur vue
+    # récupérer le username pour afficher sur vue
     @article.user[:username]
-    #récupérer l'article image_url pour afficher sur vue
+    # récupérer l'article image_url pour afficher sur vue
     @booking = Booking.new
     # booking/new afficher l'article et le formulaire de booking
   end
 
   def create
     # Booking form sent here
-    #récupérer le user
+    # récupérer le user
     # render to view confirm
   end
 
@@ -29,6 +29,10 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+  end
 
+  def index
+    @borrowed = Booking.where(user: current_user).all
+    @lent = Booking.joins(:article).where(article: { user: current_user })
   end
 end
