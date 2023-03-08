@@ -147,8 +147,8 @@ Booking.create!(
 )
 
 Booking.create!(
-  start_date: "2023-01-25",
-  end_date: "2023-01-27",
+  start_date: "2023-03-29",
+  end_date: "2023-03-30",
   status: :finished,
   user: bibi,
   article: perceuse
