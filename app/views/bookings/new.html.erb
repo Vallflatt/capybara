@@ -1,0 +1,10 @@
+<h1>formulaire de Booking</h1>
+
+<div>
+<p><%= @article.name %>, article proposé par Capy <%= @article.user.username %></p>
+</div>
+
+<%= simple_form_for [@article, @booking] do |f| %>
+<%= image_tag @article.image_url, class:"img-fluid" %>
+<%= f.submit "J'emprunte", class: "btn btn-primary" %>
+<% end %>
