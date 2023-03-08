@@ -6,6 +6,8 @@
 
 <%= simple_form_for [@article, @booking] do |f| %>
 <%= image_tag @article.image_url, class:"img-fluid" %>
+<%= @article.description %>
+
 <div class="container shadow min-vh-100 py-2">
     <div class="row justify-content-center">
         <div class="col-lg-3 col-sm-6">
