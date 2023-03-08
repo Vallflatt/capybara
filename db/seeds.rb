@@ -46,7 +46,7 @@ puts "count user: #{User.count}"
 # -------------------------------
 
 perceuse = Article.create!(
-  image_url: 'https://www.bmr.ca/media/catalog/product/cache/379dce1ac14addf86945d9e587ff6b15/0/6/068-3441_001_1.jpg',
+  image_url: 'https://www.jumbo.ch/img/products/930Wx620H/6469945_001.jpg',
   name: 'perceuse/visseuse 18V Bosch',
   description: 'Cette perceuse-visseuse fiable et efficace vous accompagnera dans tous vos travaux.',
   street: 'ch des bossons 31',
@@ -147,8 +147,8 @@ Booking.create!(
 )
 
 Booking.create!(
-  start_date: "2023-01-25",
-  end_date: "2023-01-27",
+  start_date: "2023-03-29",
+  end_date: "2023-03-30",
   status: :finished,
   user: bibi,
   article: perceuse
