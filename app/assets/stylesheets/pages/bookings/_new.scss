@@ -1,0 +1,9 @@
+.date-fields-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.date-fields-container .col-lg-3, .date-fields-container .col-sm-6 {
+  margin: 10px;
+}

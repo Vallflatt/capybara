@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: %i[index destroy] do
   end
+
+  # refactorer les routes et les link_to et redirect_to
   get "articles/id/bookings/new", to: "bookings#new"
   post "bookings/id", to: "bookings#create"
   get "bookings/", to: "bookings#index"
