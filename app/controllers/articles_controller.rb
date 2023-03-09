@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
-  # TODO Secure root when auth is ready
-  skip_before_action :authenticate_user!, only: [ :index, :show, :search ]
-
+  # TODO: Secure root when auth is ready
+  skip_before_action :authenticate_user!, only: %i[index show search]
+  before_action :set_article, only: %i[show edit update destroy]
   def index
   end
 
@@ -25,12 +25,36 @@ class ArticlesController < ApplicationController
       {
         lat: article.latitude,
         lng: article.longitude,
-        info_window_html: render_to_string(partial: "info_popup", locals: {article: article})
+        info_window_html: render_to_string(partial: "info_popup", locals: { article: })
       }
     end
     @markers = @markers.to_json
   end
 
+  def new
+    @article = Article.new
+  end
+
+  def create
+    @article = Article.new(article_params)
+    @article.user = current_user
+    if @article.save
+      redirect_to article_path(@article)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   def show
+  end
+
+  private
+
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
+  def article_params
+    params.require(:article).permit(:name, :description, :image_url, :street, :city, :zipcode, :available)
   end
 end
