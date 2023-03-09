@@ -1,0 +1,10 @@
+<%= simple_form_for @article do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :image_url %>
+  <%= f.input :street %>
+  <%= f.input :city %>
+  <%= f.input :zipcode %>
+  <%= f.input :available, as: :boolean %>
+  <%= f.submit "Enregistrer" %>
+<% end %>
