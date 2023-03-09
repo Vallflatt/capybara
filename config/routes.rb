@@ -15,9 +15,5 @@ Rails.application.routes.draw do
   # refactorer les routes et les link_to et redirect_to
   get "articles/id/bookings/new", to: "bookings#new"
   post "bookings/id", to: "bookings#create"
-<<<<<<< HEAD
-
-=======
->>>>>>> origin
   get "bookings/", to: "bookings#index"
 end
