@@ -5,4 +5,5 @@
 <%= @article.street %>
 <%= @article.city %>
 <%= @article.zipcode %>
-<%= @article.available %>
+<%# boolean pour availability %>
+<%= @article.available ? "Public" : "Privé" %>
