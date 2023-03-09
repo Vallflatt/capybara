@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @articles = Article.last(5)
+    render layout: 'home'
   end
 end
