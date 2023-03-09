@@ -1,4 +1,8 @@
 <h1>Article show</h1>
-<p>Display Picture</p>
-<p>Display article details</p>
-<p>Display booking form</p>
+<%= @article.name %>
+<%= @article.description %>
+<img src="<%= @article.image_url%>">
+<%= @article.street %>
+<%= @article.city %>
+<%= @article.zipcode %>
+<%= @article.available %>

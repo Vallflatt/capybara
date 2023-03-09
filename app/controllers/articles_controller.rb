@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   # TODO: Secure root when auth is ready
   skip_before_action :authenticate_user!, only: %i[index show search]
-
+  before_action :set_article, only: %i[show edit update destroy]
   def index
   end
 
@@ -46,6 +46,12 @@ class ArticlesController < ApplicationController
   end
 
   def show
+  end
+
+  private
+
+  def set_article
+    @article = Article.find(params[:id])
   end
 
   def article_params
