@@ -11,18 +11,17 @@
   <button type=submit>Search</button>
 </form>
 
-<% if !@articles.nil? %>
-<hr>
-  <% if @articles.length == 0 %>
-    <p>Pas de résultats</p>
-  <% else %>
-    <% @articles.each do |article| %>
-      <p><%= article.name %></p>
-    <% end %>
-  <% end %>
-<hr>
-<% end %>
 <br>
-<p>Display map with markers</p>
 
-<p>Add modal for when markes clicked</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+  </div>
+
+</div>
+
+<div style="width: 100%; height: 500px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>

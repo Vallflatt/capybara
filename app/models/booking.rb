@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :article
-  enum status: [:pending, :confirmed, :declined, :finished]
+  enum status: %i[pending confirmed declined finished]
   validates :start_date, presence: true
   validates :end_date, presence: true
   validate :dates_in_future
