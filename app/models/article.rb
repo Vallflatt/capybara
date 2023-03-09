@@ -10,7 +10,7 @@ class Article < ApplicationRecord
   validates :street, presence: true
   validates :zipcode, presence: true
   validates :image_url, presence: true
-
+  validates :available, presence: true, default: true
   after_validation :geocode, if: :will_save_change_to_street?
 
   def address
