@@ -1,5 +1,6 @@
-<h1>Bookings confirm</h1>
-
-<p>Display success with details</p>
-
-<p>Display error when error</p>
+<div class="confirm-wrapper">
+  <h2>CONFIRMATION</h2>
+  <p>Merci <%=current_user[:username]%> d’utiliser Capybara ! Ta demande a été envoyée à  <%=@article.user[:username]%>  for <%= @article.name %>.</p>
+  <div><i class="fa-solid fa-circle-check success-icon"></i></div>
+  <%=link_to "Mes emprunts", bookings_path, class: "btn btn-primary"%>
+</div>
