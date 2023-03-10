@@ -1,10 +1,10 @@
 <%= simple_form_for @article do |f| %>
-  <%= f.input :name, label: "Nom de l'article"%>
-  <%= f.input :description, label: "Description de l'article" %>
-  <%= f.input :image_url, label: "Url de l'image" %>
-  <%= f.input :street, label: "Rue / n°" %>
-  <%= f.input :city, label: "Ville" %>
-  <%= f.input :zipcode, label: "Code Postal" %>
-  <%= f.input :available, as: :boolean, label: "Disponible" %>
-  <div class="text-center"><%= f.submit "Ajouter", class: "btn btn-warning btn-lg", style: "border-radius: 25px; color: white;"%></div>
+  <%= f.input :name, label: false, placeholder: "Nom de l'article", input_html:{ autofocus: true } %>
+  <%= f.input :description, label: false, placeholder: "Description de l'article", input_html:{ autofocus: true }%>
+  <%= f.input :image_url, label: false, placeholder: "Url de l'image", input_html:{ autofocus: true } %>
+  <%= f.input :street, label: false, placeholder: "Rue / n°", input_html:{ autofocus: true } %>
+  <%= f.input :city, label: false, placeholder: "Ville", input_html:{ autofocus: true } %>
+  <%= f.input :zipcode, label: false, placeholder: "Code Postal", input_html:{ autofocus: true } %>
+  <%= f.input :available, as: :boolean, label: "Disponible"%>
+  <div class="text-center"><%= f.submit "Ajouter", class: "btn btn-success btn-lg", style: "border-radius: 25px; color: white;"%></div>
 <% end %>
