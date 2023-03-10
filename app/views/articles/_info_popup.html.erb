@@ -1,12 +1,13 @@
-<img src="<%= article.image_url %>" class="article-img">
 
+<img src="<%= article.image_url %>" class="article-img" style="width: 75%">
 
 <div class="infos">
-  <div class="article-name"><%= article.name %></div>
+  <div class="article-name" style="font-size: 12px;font-weight: bold;">
+  <%= article.name %></div>
   <div><%= article.address %></div>
 </div>
 
-<%= link_to "<button class='booking-btn'>Emprunter</button>".html_safe, new_article_booking_path(article.id), :class=>"booking-link" %>
+<%= link_to "<button class='booking-btn rounded-4'>Emprunter</button>".html_safe, new_article_booking_path(article.id), :class=>"booking-link" %>
 
 <style>
   .booking-btn {
