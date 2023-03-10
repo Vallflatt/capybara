@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get "articles/id/bookings/new", to: "bookings#new"
   post "bookings/id", to: "bookings#create"
   get "bookings/", to: "bookings#index"
+  get "articles/", to: "articles#index"
 end
