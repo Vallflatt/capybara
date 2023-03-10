@@ -3,20 +3,17 @@
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "Logo_Capy_3-removebg-preview.png" %>
     <% end %>
-    <button class="navbar-toggler d-block" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto text-end" >
+    <div class="btn-group dropstart">
+      <i class="fa-solid fa-chevron-down" style="margin-right: 20px" type="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+      <ul class="dropdown-menu rounded-4 p-4" style="width: 236px; margin-right: -10px; margin-top: 36px;">
         <% if user_signed_in? %>
-          <li class="nav-item"><%= link_to "Mes emprunts", "#", class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Mes prêts", "#", class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Mes objets", "#", class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Ajouter un nouvel objet", "#", class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %></li>
+          <li class="nav-item" style="margin-bottom: 8px"><%= link_to "Mes prêts", bookings_path, class: "nav-link" %></li>
+          <li class="nav-item" style="margin-bottom: 8px"><%= link_to "Mes objets", articles_path, class: "nav-link" %></li>
+          <li class="nav-item" style="margin-bottom: 8px"><%= link_to "Ajouter un nouvel objet", new_article_path, class: "nav-link" %></li>
+          <li class="nav-item" style="margin-bottom: 8px"><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %></li>
         <% else %>
-          <li class="nav-item"><%= link_to "Login", new_user_session_path, class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %> </li>
+          <li class="nav-item" style="margin-bottom: 8px"><%= link_to "Login", new_user_session_path, class: "nav-link" %></li>
+          <li class="nav-item" style="margin-bottom: 8px"><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %> </li>
         <% end %>
       </ul>
     </div>
