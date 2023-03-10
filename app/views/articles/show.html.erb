@@ -7,3 +7,12 @@
 <%= @article.zipcode %>
 <%# boolean pour availability %>
 <%= @article.available ? "Public" : "Privé" %>
+<div class="row">
+  <div class="col">
+    <%= link_to "Mes Articles", articles_path, class: 'btn btn-warning text-white' %>
+  </div>
+  <div class="col">
+    <%# link not there %>
+    <%= link_to "Modifier", "#", class: 'btn btn-warning text-white' %>
+  </div>
+</div>
