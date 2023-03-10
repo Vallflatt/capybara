@@ -1,43 +1,48 @@
-<div class="homepage text-center fs-2">
-  <p>Partagez, économisez, vivez mieux avec Capybara.ch !</p>
-</div>
-<div class="m-5 form-row justify-content-center">
-  <form action="/articles/search" method="GET">
-    <div class="form-floating mb-4">
-      <input type="text" class="form-control" name="search" id="floatingInput" placeholder="Article" style="border-radius: 10px;">
-      <label for="floatingInput">Article</label>
-    </div>
-    <div class="form-floating mb-4">
-      <input type="text" class="form-control" name="address" id="floatingInput" placeholder="Adresse" style="border-radius: 10px;">
-      <label for="floatingInput">Adresse</label>
-    </div>
-    <div class="buttonsearch text-center d-grid gap-2">
-      <button type="submit" class="btn btn-warning text-white" style="border-radius: 25px;">Rechercher</button>
-    </form>
+<body style=" background-color: #f4c391;">
+  <div class="d-flex justify-content-center" style="width: 95%; height: 20%; position: absolute; margin-top:-30px">
+    <%= image_tag "Logo_Capy_3-removebg-preview.png" %>
   </div>
-</div>
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <% @articles.each_with_index do |article, index| %>
-      <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-        <div class="carousel-item-container">
-          <div class="w-50">
-            <img src="<%= article.image_url%>" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item-info">
-            <div class="carousel-item-name mb-4"><%= article.name%></div>
-            <div class="carousel-item-description"><%= article.description%></div>
+  <div class="homepage text-center fs-2" style="margin-top:170px">
+    <p>Partagez, économisez, vivez mieux avec Capybara !</p>
+  </div>
+  <div class="m-5 form-row justify-content-center">
+    <form action="/articles/search" method="GET">
+      <div class="form-floating mb-4">
+        <input type="text" class="form-control" name="search" id="floatingInput" placeholder="Article" style="border-radius: 10px;">
+        <label for="floatingInput">Article</label>
+      </div>
+      <div class="form-floating mb-4">
+        <input type="text" class="form-control" name="address" id="floatingInput" placeholder="Adresse" style="border-radius: 10px;">
+        <label for="floatingInput">Adresse</label>
+      </div>
+      <div class="buttonsearch text-center d-grid gap-2">
+        <button type="submit" class="btn btn-warning text-white" style="border-radius: 25px;">Rechercher</button>
+      </form>
+    </div>
+  </div>
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <% @articles.each_with_index do |article, index| %>
+        <div class="carousel-item <%= index == 0 ? 'active' : '' %>" style="margin-bottom: 50px;background-color: white;padding: 13px;border-radius: 25px;">
+          <div class="carousel-item-container">
+            <div class="w-50">
+              <img src="<%= article.image_url%>" class="d-block w-75" alt="...">
+            </div>
+            <div class="carousel-item-info">
+              <div class="carousel-item-name mb-4"><%= article.name%></div>
+              <div class="carousel-item-description"><%= article.description%></div>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+</body>
