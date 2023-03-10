@@ -1,1 +1,13 @@
 <h1>Article index</h1>
+<% @articles.each do |article| %>
+  <div class="row">
+    <div class="col">
+      <img src="<%= article.image_url%>">
+    </div>
+    <div class="col">
+      <%= article.name %>
+      <%= article.description %>
+      <%= link_to "Voir l'article", article_path(article.id), class: 'btn btn-warning text-white' %>
+    </div>
+  </div>
+<% end %>
