@@ -7,8 +7,8 @@
   </div>
 </div>
 <%= simple_form_for [@article, @booking] do |f| %>
-  <%= image_tag @article.image_url, class:"img-fluid" %>
-  <div class="card mt-2" style="background-color: #F4C391; border-radius: 5px; padding: 8px;">
+  <%= image_tag @article.image_url, class:"img-fluid"%>
+  <div class="card mt-2" style=" border-radius: 5px; padding: 8px;">
     <div class="card-body">
       <h5 class="card-title text-center">Détails de l'article</h5>
       <%= @article.description %>
@@ -27,6 +27,6 @@
         <span id="endDateSelected"></span>
       </div>
     </div>
-    <div class="text-center mt-1"><%= f.submit "Reserver", class: "btn btn-warning btn-lg", style: "border-radius: 25px; color: white;" %></div>
+    <div class="text-center mb-3"><%= f.submit "Reserver", class: "btn btn-warning btn-lg", style: "border-radius: 25px; color: white;" %></div>
   </div>
 <% end %>
