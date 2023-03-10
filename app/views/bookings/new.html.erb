@@ -8,7 +8,7 @@
 </div>
 <%= simple_form_for [@article, @booking] do |f| %>
   <%= image_tag @article.image_url, class:"img-fluid"%>
-  <div class="card mt-2" style=" border-radius: 5px; padding: 8px;">
+  <div class="card mt-2 bg-light" style=" border-radius: 5px; padding: 8px;">
     <div class="card-body">
       <h5 class="card-title text-center">Détails de l'article</h5>
       <%= @article.description %>

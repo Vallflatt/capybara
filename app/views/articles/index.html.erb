@@ -1,13 +1,18 @@
-<h1>Article index</h1>
+<div class="text-center mt-5">
+  <h2>Mes objets</h2>
+</div>
 <% @articles.each do |article| %>
   <div class="row">
     <div class="col">
-      <img src="<%= article.image_url%>">
-    </div>
-    <div class="col">
-      <%= article.name %>
-      <%= article.description %>
-      <%= link_to "Voir l'article", article_path(article.id), class: 'btn btn-warning text-white' %>
-    </div>
-  </div>
-<% end %>
+      <div class="card mt-3 mb-4" style=" border-radius: 5px; padding: 8px;">
+        <img src="<%= article.image_url%>">
+        <div class="col">
+          <div class="bg-light card mt-2" style=" border-radius: 5px; padding: 8px;">
+            <%= article.name %>
+            <%= article.description %>
+          </div>
+          <div class="text-center m-3"><%= link_to "Voir l'article", article_path(article.id), class: "btn btn-warning text-white", style: "border-radius: 25px; color: white;" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
