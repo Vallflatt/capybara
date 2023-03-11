@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new(booking_create_params)
     @booking.article = @article
     @booking.status = Booking.statuses[:pending]
     @booking.user = current_user
@@ -24,17 +24,31 @@ class BookingsController < ApplicationController
   end
 
   def confirm
-
+    # Page de confirmation après demande de réservation
   end
 
   def edit
     # Booking edit form sent here
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+
+    # In case the from is sent without a status, we keep to old one
+    if params[:booking][:status] == ""
+      params[:booking][:status] = @booking.status
+    end
+
+    @booking.update(booking_update_params)
+    redirect_to bookings_path
+  end
+
   def show
     # Show details display here
-    # If I rent out, possibility to change status (display form) also say transaction finished
-    # If I borrow, only display current details or cancel (destroy)
+    @booking = Booking.find(params[:id])
+    if @booking.user_id != current_user.id && @booking.article.user_id != current_user.id
+      redirect_to bookings_path
+    end
   end
 
   def destroy
@@ -47,8 +61,12 @@ class BookingsController < ApplicationController
 
   private
 
-  def booking_params
+  def booking_create_params
     params.require(:booking).permit(:start_date, :end_date)
+  end
+
+  def booking_update_params
+    params.require(:booking).permit(:status, :message)
   end
 
   def set_article
