@@ -1,0 +1,13 @@
+<div class="row" style="margin: 10px;">
+  <%= render 'bookings/booking_status', status: "pending" %>
+  <%= render 'bookings/booking', bookings: filtered.select{ |booking| booking["status"] == "pending" } %>
+
+  <%= render 'bookings/booking_status', status: "confirmed" %>
+  <%= render 'bookings/booking', bookings: filtered.select{ |booking| booking["status"] == "confirmed" } %>
+
+  <%= render 'bookings/booking_status', status: "declined" %>
+  <%= render 'bookings/booking', bookings: filtered.select{ |booking| booking["status"] == "declined" } %>
+
+  <%= render 'bookings/booking_status', status: "finished" %>
+  <%= render 'bookings/booking', bookings: filtered.select{ |booking| booking["status"] == "finished" } %>
+</div>
