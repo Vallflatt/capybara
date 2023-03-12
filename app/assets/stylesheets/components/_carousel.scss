@@ -5,6 +5,10 @@
   border-radius: 25px;
 }
 
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  background-color: lightgray;
+}
+
 .carousel-item-container {
   width: 100%;
   display: flex;

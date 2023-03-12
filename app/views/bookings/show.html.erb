@@ -36,6 +36,7 @@
           <%= f.collection_radio_buttons :status, [[:finished, 'Terminer'], [:declined, 'Refuser']], :first, :last %>
         <% end %>
         </div>
+        <%# <button onclick="history.back()">Go back</button> %>
         <div class="text-center mb-3"><%= f.submit "Suivant", class: "btn btn-warning btn-lg", style: "border-radius: 25px; color: white;" %></div>
       </div>
     <% end %>
