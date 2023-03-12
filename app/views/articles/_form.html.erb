@@ -1,7 +1,7 @@
 <%= simple_form_for @article do |f| %>
   <%= f.input :name, label: false, placeholder: "Nom de l'article", input_html:{ autofocus: true } %>
   <%= f.input :description, label: false, placeholder: "Description de l'article" %>
-  <%= f.input :image_url, label: false, placeholder: "Url de l'image" %>
+  <%= f.input :photo, as: :file %>
   <%= f.input :street, label: false, placeholder: "Rue / n°" %>
   <%= f.input :city, label: false, placeholder: "Ville" %>
   <%= f.input :zipcode, label: false, placeholder: "Code Postal" %>

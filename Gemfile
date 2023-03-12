@@ -59,6 +59,7 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "debug", platforms: %i[mri mingw x64_mingw]
 gem "dotenv-rails"
 gem "faker"
+gem "cloudinary"
 # end
 
 group :development do

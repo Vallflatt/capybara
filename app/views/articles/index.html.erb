@@ -1,18 +1,24 @@
-<div class="text-center mt-5">
-  <h2>Mes objets</h2>
-</div>
-<% @articles.each do |article| %>
+<div class="article-index">
+  <div class="text-center mt-5">
+    <h2>Mes objets</h2>
+  </div>
+
   <div class="row">
-    <div class="col">
-      <div class="card mt-3 mb-4" style=" border-radius: 5px; padding: 8px;">
-        <img src="<%= article.image_url%>">
-        <div class="col">
+    <% @articles.each do |article| %>
+      <div class="col-12">
+        <div class="card mt-3 mb-4" style=" border-radius: 5px; padding: 8px;">
+          <img src="<%= cl_image_path article.photo.key %>" class="article-picture">
           <div class="bg-light card mt-2" style=" border-radius: 5px; padding: 8px;">
             <%= article.name %>
             <%= article.description %>
           </div>
-          <div class="text-center m-3"><%= link_to "Voir l'article", article_path(article.id), class: "btn btn-warning text-white", style: "border-radius: 25px; color: white;" %>
+
+          <div class="text-center m-3">
+            <%= link_to "Voir l'article", article_path(article.id), class: "btn btn-warning text-white", style: "border-radius: 25px; color: white;" %>
           </div>
+
         </div>
       </div>
     <% end %>
+  </div>
+</div>

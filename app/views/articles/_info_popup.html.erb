@@ -1,5 +1,5 @@
 
-<img src="<%= article.image_url %>" class="article-img" style="width: 75%">
+<img src="<%= cl_image_path article.photo.key %>" class="article-img">
 
 <div class="infos">
   <div class="article-name" style="font-size: 12px;font-weight: bold;">
@@ -21,6 +21,9 @@
 
   .article-img {
     width: 100%;
+    max-width: 10rem;
+    margin: 0 auto;
+    display: block;
   }
 
   .article-name {
