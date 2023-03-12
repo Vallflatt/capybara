@@ -3,7 +3,7 @@
   <a href="<%= booking_path(booking.id) %>">
     <div class="carousel-item-container">
       <div class="w-50">
-        <img src="<%= booking.article.image_url%>" class="d-block w-100" alt="...">
+        <img src="<%= cl_image_path booking.article.photo.key %>" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item-info">
         <div class="carousel-item-name mb-2" style="font-size: 14px"><%= booking.article.name%></div>
