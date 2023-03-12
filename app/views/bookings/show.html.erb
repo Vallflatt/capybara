@@ -1,41 +1,43 @@
-<div class="text-center mt-5">
+<div class="booking-show">
+  <div class="text-center mt-5">
   <h2>Détails de la réservation</h2>
-</div>
-
-
-<div class="mt-3 mb-4" style=" border-radius: 5px; padding: 8px;">
-  <div class="card-body">
-    <p><%= @booking.article.name %></p>
   </div>
-</div>
 
-<%= image_tag @booking.article.image_url, class:"img-fluid"%>
-<div class="card mt-2 bg-light" style=" border-radius: 5px; padding: 8px;">
-  <div class="card-body">
-  <p>Du <%= @booking.start_date %> au <%= @booking.end_date %></p>
-  <p>Demandé le <%= @booking.created_at %> par Capy <%= @booking.user.username %></p>
-  </div>
-</div>
 
-<% if @booking.user_id == current_user.id %>
-  <!-- For borrow -->
-  <div class="container shadow pb-3 py-2">
-    <%= render 'bookings/booking_status', status: @booking.status %>
-    <p><%= @booking.message %></p>
-  </div>
-<% else %>
-  <!-- For lent -->
-  <%= simple_form_for @booking, method: :patch do |f| %>
-    <div class="container shadow pb-3 py-2">
-      <%= f.input :message, label: false, placeholder: "Message pour Capy #{@booking.user.username}", input_html:{ autofocus: true } %>
-      <div class="form-row d-flex date-fields-container">
-      <% if @booking.status == "pending" %>
-        <%= f.collection_radio_buttons :status, [[:confirmed, 'Accepter'], [:declined, 'Refuser']], :first, :last %>
-      <% elsif @booking.status == "confirmed" %>
-        <%= f.collection_radio_buttons :status, [[:finished, 'Terminer'], [:declined, 'Refuser']], :first, :last %>
-      <% end %>
-      </div>
-      <div class="text-center mb-3"><%= f.submit "Suivant", class: "btn btn-warning btn-lg", style: "border-radius: 25px; color: white;" %></div>
+  <div class="mt-3 mb-4" style=" border-radius: 5px; padding: 8px;">
+    <div class="card-body">
+      <p><%= @booking.article.name %></p>
     </div>
+  </div>
+
+  <img src="<%= cl_image_path @booking.article.photo.key %>" class="article-picture">
+  <div class="card mt-2 bg-light" style=" border-radius: 5px; padding: 8px;">
+    <div class="card-body">
+    <p>Du <%= @booking.start_date %> au <%= @booking.end_date %></p>
+    <p>Demandé le <%= @booking.created_at %> par Capy <%= @booking.user.username %></p>
+    </div>
+  </div>
+
+  <% if @booking.user_id == current_user.id %>
+    <!-- For borrow -->
+    <div class="container shadow pb-3 py-2">
+      <%= render 'bookings/booking_status', status: @booking.status %>
+      <p><%= @booking.message %></p>
+    </div>
+  <% else %>
+    <!-- For lent -->
+    <%= simple_form_for @booking, method: :patch do |f| %>
+      <div class="container shadow pb-3 py-2">
+        <%= f.input :message, label: false, placeholder: "Message pour Capy #{@booking.user.username}", input_html:{ autofocus: true } %>
+        <div class="form-row d-flex date-fields-container">
+        <% if @booking.status == "pending" %>
+          <%= f.collection_radio_buttons :status, [[:confirmed, 'Accepter'], [:declined, 'Refuser']], :first, :last %>
+        <% elsif @booking.status == "confirmed" %>
+          <%= f.collection_radio_buttons :status, [[:finished, 'Terminer'], [:declined, 'Refuser']], :first, :last %>
+        <% end %>
+        </div>
+        <div class="text-center mb-3"><%= f.submit "Suivant", class: "btn btn-warning btn-lg", style: "border-radius: 25px; color: white;" %></div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
