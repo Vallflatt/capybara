@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: %i[show index update] do
   end
+
+  get "api/address-from-coordinates", to: "api#address_from_coordinates"
 end

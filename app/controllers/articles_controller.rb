@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show search]
   before_action :set_article, only: %i[show edit update destroy]
   def index
-    @articles = Article.where(user: current_user).all
+    @articles = Article.where(user: current_user).order(id: :desc).all
   end
 
   def search
