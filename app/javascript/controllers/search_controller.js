@@ -44,7 +44,7 @@ export default class extends Controller {
   async searchAddress() {
     if (this.coordinates) {
       const address = await this.#fetchAddress()
-      this.addressTarget.value = `${address.road} ${address.postcode} ${address.city}`
+      this.addressTarget.value = `${address.road || ''} ${address.postcode || ''} ${address.city || ''}`
     }
   }
 
