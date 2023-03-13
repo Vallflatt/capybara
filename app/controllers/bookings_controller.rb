@@ -4,11 +4,15 @@ class BookingsController < ApplicationController
   before_action :set_article, only: %i[new create confirm]
 
   def new
-    #récupérer le username pour afficher sur vue
-    @article.user[:username]
-    # récupérer l'article image_url pour afficher sur vue
     @booking = Booking.new
-    # booking/new afficher l'article et le formulaire de booking
+
+    # Fetch all bookings for that article and map them as array of dates
+    # between start and end dates
+    booked_dates = Booking.where({article: @article}).all.map do |booking|
+      (booking.start_date..booking.end_date).to_a
+    end
+    # Flatten the array of arrays and map all dates to string yyyy-mm-dd
+    @reserved = booked_dates.flatten.map {|date| date.strftime('%Y-%m-%d')}
   end
 
   def create

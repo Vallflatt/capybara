@@ -17,15 +17,15 @@
     <%= simple_form_for [@article, @booking] do |f| %>
       <div class="container shadow pb-3 py-2">
         <div class="form-row d-flex date-fields-container">
-          <div class="col-lg-3 col-sm-6">
-            <label for="startDate"></label>
-            <%=f.date_field :start_date, "data-booking-form-target": "startDate", class:"form-control"%>
-            <span id="startDateSelected"></span>
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <label for="endDate"></label>
-            <%=f.date_field :end_date, "data-booking-form-target": "endDate", class:"form-control"%>
-            <span id="endDateSelected"></span>
+          <div class="dates-container"
+          data-controller="bookingdate"
+          data-bookingdate-bookings-value="<%= @reserved %>">
+            <span>De</span>
+            <input type="text" name="booking[start_date]">
+            <%# <%= f.input :start_date, class:"form-control", name: "start" %>
+            <span>à</span>
+            <input type="text" name="booking[end_date]">
+            <%# <%= f.input :end_date, class:"form-control", name: "end" %>
           </div>
         </div>
         <div class="text-center mb-3"><%= f.submit "Reserver", class: "btn btn-warning btn-lg", style: "border-radius: 25px; color: white;" %></div>
