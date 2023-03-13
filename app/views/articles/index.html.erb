@@ -2,7 +2,6 @@
   <div class="text-center mt-5">
     <h2>Mes objets</h2>
   </div>
-
   <div class="row">
     <% @articles.each do |article| %>
       <div class="col-12">
@@ -12,11 +11,9 @@
             <%= article.name %>
             <%= article.description %>
           </div>
-
           <div class="text-center m-3">
             <%= link_to "Voir l'article", article_path(article.id), class: "btn btn-warning text-white", style: "border-radius: 25px; color: white;" %>
           </div>
-
         </div>
       </div>
     <% end %>

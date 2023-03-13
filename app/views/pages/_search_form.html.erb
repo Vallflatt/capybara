@@ -3,31 +3,31 @@
     <div class="form-floating mb-4">
       <input type="text"
             data-action="input->search#inputChange"
-            data-search-target="name"
-            class="form-control"
-            name="search"
-            id="floatingInput"
-            placeholder="Article"
-            value="<%= @search || ''%>">
-      <label for="floatingInput">Article</label>
+      data-search-target="name"
+      class="form-control"
+      name="search"
+      id="searchInput"
+      placeholder="Article"
+      value="<%= @search || ''%>">
+      <label for="searchInput">Article</label>
     </div>
     <div class="form-floating mb-4">
       <input type="text"
           data-action="input->search#inputChange"
-          data-search-target="address"
-          class="form-control"
-          name="address"
-          id="floatingInput"
-          placeholder="Adresse"
-          value="<%= @address || ''%>">
+      data-search-target="address"
+      class="form-control"
+      name="address"
+      id="floatingInput"
+      placeholder="Adresse"
+      value="<%= @address || ''%>">
       <label for="floatingInput">Adresse</label>
     </div>
-    <div class="button-container text-center gap-2">
+    <div class="button-container text-center gap-2" style="margin-bottom: 50px">
       <button type="button"data-search-target="locationButton"
               data-action="click->search#searchAddress"
-              class="btn btn-warning text-white"
-              style="display: none"><i class="fa-solid fa-location-dot"></i></button>
-              <!-- display: none must stay in the inline style -->
+        class="btn btn-warning text-white"
+        style="display: none"><i class="fa-solid fa-location-dot"></i></button>
+      <!-- display: none must stay in the inline style -->
       <button type="submit"
               data-search-target="searchButton"
               class="btn btn-warning text-white search-button">Rechercher</button>
