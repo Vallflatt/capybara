@@ -49,6 +49,17 @@ class ArticlesController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @article.update(article_params)
+      redirect_to @article, notice: "L'article a bien été modifié."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_article
