@@ -4,8 +4,7 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
   <%= f.error_notification %>
   <div class="form-inputs">
-    <%= f.input :username, label:"
-Nom d'utilisateur",
+    <%= f.input :username, label:"Nom d'utilisateur",
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "username" }%>
@@ -21,7 +20,7 @@ Nom d'utilisateur",
                 input_html: { autocomplete: "new-password" } %>
   </div>
   <div class="form-actions">
-    <div class="text-center mt-4"> <%= f.button :submit, "S'inscrire", class: "btn-outline-warning btn-custom", style: "border-radius: 25px;" %> </div>
+    <div class="text-center mt-4"><%= f.button :submit, "S'inscrire", class: "btn-outline-warning btn-custom", style: "border-radius: 25px;" %></div>
   </div>
 <% end %>
 <div class="mt-4">
