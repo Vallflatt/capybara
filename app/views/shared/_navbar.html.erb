@@ -2,6 +2,11 @@
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "Logo_Capy_3-removebg-preview.png" %>
+      <div>
+        <% if user_signed_in? %>
+        <p>Bonjour Capy <%= current_user.username %></p>
+      <% end %>
+      </div>
     <% end %>
     <div class="btn-group dropstart">
       <i class="fa-solid fa-chevron-down" style="margin-right: 20px" type="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
