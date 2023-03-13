@@ -16,11 +16,9 @@
       <%= link_to "Mes Articles", articles_path, class: 'btn btn-warning text-white', class: "btn btn-warning", style: "border-radius: 25px; color: white;" %>
     </div>
     <div class="col">
-      <button onclick="history.back()" class='btn btn-warning text-white' style="border-radius: 25px; color: white;">Go back</button>
+      <button onclick="history.back()" class='btn btn-warning text-white' style="border-radius: 25px; color: white;">Retour</button>
     </div>
     <div class="col">
-      <%# link not there %>
-      <%= link_to "Modifier", "#", class: 'btn btn-warning text-white', class: "btn btn-warning", style: "border-radius: 25px; color: white;" %>
+      <%= link_to "Modifier cet article", edit_article_path(@article), class: 'btn btn-warning text-white', class: "btn btn-warning", style: "border-radius: 25px; color: white;" %>
     </div>
   </div>
-</div>
