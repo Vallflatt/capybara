@@ -1,20 +1,17 @@
-
-<img src="<%= cl_image_path article.photo.key %>" class="article-img">
-
-<div class="infos">
-  <div class="article-name" style="font-size: 12px;font-weight: bold;">
-  <%= article.name %>
+<img src="<%= cl_image_path article.photo.key %>" class="article-img mb-3">
+<div class="infos m-2">
+  <div class="article-name mb-3" style="font-size: 12px;font-weight: bold;">
+    <%= article.name %>
   </div>
-  <div>Article proposé par Capy <%= article.user.username %></div>
-  <div><%= article.address %></div>
+  <div class="mb-3"> Article proposé par Capy <%= article.user.username %></div>
+  <div class="mb-3"><%= article.address %></div>
 </div>
-
-<%= link_to "<button class='booking-btn rounded-4'>Emprunter</button>".html_safe, new_article_booking_path(article.id), :class=>"booking-link" %>
-
+<%= link_to "<button class='booking-btn rounded-4'>Emprunter</button>".html_safe, new_article_booking_path(article.id), :class=>"booking-link d-flex justify-content-center" %>
 <style>
   .booking-btn {
-    width: 100%;
-    background: black;
+    width: 75%;
+    background: #D8833B;
+    border: none;
     padding: 1rem;
     color: white;
     font-weight: bold;
@@ -22,7 +19,7 @@
   }
 
   .article-img {
-    width: 100%;
+    width: 75%;
     max-width: 10rem;
     margin: 0 auto;
     display: block;
