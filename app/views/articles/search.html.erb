@@ -1,20 +1,16 @@
 <div class="homepage text-center fs-4 my-5">
   <p>Rechercher un article</p>
 </div>
-
 <div class="m-4 form-row justify-content-center">
-      <%= render 'pages/search_form' %>
+  <%= render 'pages/search_form' %>
 </div>
-
-
 <div class="container">
   <div class="row">
     <div class="col">
     </div>
   </div>
 </div>
-
-<div style="width: 100%; height: 500px; border-radius:25px"
+<div style="width: 100%; height: 500px; border-radius:25px; margin-bottom: 50px"
   data-controller="map"
   data-map-markers-value="<%= @markers %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

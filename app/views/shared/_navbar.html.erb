@@ -2,10 +2,10 @@
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "Logo_Capy_3-removebg-preview.png" %>
-      <div>
+      <div class="d-flex justify-content-center">
         <% if user_signed_in? %>
-        <p>Bonjour Capy <%= current_user.username %></p>
-      <% end %>
+          <p>Bonjour Capy <%= current_user.username %></p>
+        <% end %>
       </div>
     <% end %>
     <div class="btn-group dropstart">
