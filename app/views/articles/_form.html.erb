@@ -2,7 +2,9 @@
   <%= f.input :name, label: false, placeholder: "Nom de l'article", input_html:{ autofocus: true } %>
   <%= f.input :description, label: false, placeholder: "Description de l'article" %>
   <%= f.input :photo, as: :file %>
-  <%= cl_image_tag @article.photo.key, width: 200%>
+  <% if @article.id != nil %>
+    <%= cl_image_tag @article.photo.key, width: 200%>
+  <% end %>
   <%= f.input :street, label: false, placeholder: "Rue / n°" %>
   <%= f.input :city, label: false, placeholder: "Ville" %>
   <%= f.input :zipcode, label: false, placeholder: "Code Postal" %>
