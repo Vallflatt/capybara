@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to article_booking_confirm_path(@article, @booking)
     else
-      redirect_to articles_id_bookings_new_path(@article), status: :unprocessable_entity, alert: 'Nécessite date correcte'
+      redirect_to new_article_booking_path(@article), status: :unprocessable_entity, alert: 'Nécessite date correcte'
     end
   end
 
