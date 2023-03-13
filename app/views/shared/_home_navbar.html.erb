@@ -1,12 +1,12 @@
 <div class="navbar navbar-expand-xxl navbar-light navbar-lewagon bg-white">
-  <div class="container-fluid" style="height: 60px">
+  <div class="container-fluid d-flex" style="height: 60px">
     <%= link_to root_path, class: "navbar-brand" do %>
     <% end %>
-      <div>
-        <% if user_signed_in? %>
-        <p>Bonjour Capy <%= current_user.username %></p>
+    <div class="p-2" style="margin-top: 12px; font-size: 14px">
+      <% if user_signed_in? %>
+        <p>👋🏻 Bonjour Capy <strong><%= current_user.username %></strong></p>
       <% end %>
-      </div>
+    </div>
     <div class="btn-group dropstart">
       <i class="fa-solid fa-chevron-down" style="margin-right: 20px" type="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
       <ul class="dropdown-menu rounded-4 p-4" style="width: 236px; margin-right: -10px; margin-top: 36px;">
