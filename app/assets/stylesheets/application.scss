@@ -14,3 +14,24 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+.mapboxgl-popup-content {
+  width: 310px !important;
+  border-radius: 15px !important;
+  background: rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(6px);
+  padding: 0px 0px 0px 0px !important;
+}
+
+.mapboxgl-popup {
+  max-width: 310px !important;
+}
+
+.mapboxgl-popup-anchor-bottom {
+  max-width: 310px !important;
+}
+
+.mapboxgl-popup-tip {
+  opacity: 0% !important;
+}

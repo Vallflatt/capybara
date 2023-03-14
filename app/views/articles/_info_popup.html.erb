@@ -1,40 +1,45 @@
-
-<img src="<%= cl_image_path article.photo.key %>" class="article-img">
-
-<div class="infos">
-  <div class="article-name" style="font-size: 12px;font-weight: bold;">
-  <%= article.name %>
+<div class="container d-flex flex-row p-0">
+  <div class="image col-5">
+    <img src="<%= cl_image_path article.photo.key %>" class="article-img">
   </div>
-  <div>Article proposé par Capy <%= article.user.username %></div>
-  <div><%= article.address %></div>
+  <div class="infos col-7" style="padding: 10px">
+    <div class="article-name" style="font-size: 12px;font-weight: bold;">
+      <%= article.name %>
+    </div>
+    <div style="font-size: 10px; margin: 0px"> Article proposé par Capy <%= article.user.username %></div>
+    <div style="font-size: 10px; margin: 0px"><%= article.address %></div>
+  </div>
 </div>
-
-<%= link_to "<button class='booking-btn rounded-4'>Emprunter</button>".html_safe, new_article_booking_path(article.id), :class=>"booking-link" %>
-
+<div class="botton col-12">
+  <%= link_to "<button class='booking-btn'>Emprunter</button>".html_safe, new_article_booking_path(article.id), :class=>"booking-link d-flex justify-content-center" %>
+</div>
 <style>
   .booking-btn {
     width: 100%;
-    background: black;
+    background: #D8833B;
+    border: none;
     padding: 1rem;
     color: white;
     font-weight: bold;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 
   }
 
   .article-img {
     width: 100%;
-    max-width: 10rem;
-    margin: 0 auto;
+    height: 100%;
     display: block;
+    border-top-left-radius: 15px;
   }
 
   .article-name {
-    margin-bottom: 0.2rem;
+    margin: 0px;
+    padding-bottom: 10px;
 
   }
 
   .infos {
-    margin: 0.5rem 0;
     font-size: 14px;
   }
 </style>
