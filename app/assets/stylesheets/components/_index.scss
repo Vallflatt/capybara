@@ -17,3 +17,7 @@ a {
 .nav-link:not(.active) {
   color: black;
 }
+
+.my-row > .border {
+  margin-top: -10px;
+}

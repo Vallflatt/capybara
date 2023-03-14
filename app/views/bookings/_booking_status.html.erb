@@ -1,9 +1,11 @@
-<% if status == "pending"%>
-  <h3 class="btn btn-outline-warning rounded-4 disabled">En attente</h3>
-<% elsif status == "confirmed" %>
-  <h3 class="btn btn-outline-success rounded-4 disabled mt-4">Confirmé</h3>
-<% elsif status == "declined" %>
-  <h3 class="btn btn-outline-danger rounded-4 disabled mt-4">Refusé</h3>
-<% else %>
-  <h3 class="btn btn-outline-secondary rounded-4 disabled mt-4">Terminé</h3>
-<% end %>
+<div class="text-center mt-2">
+  <% if status == "pending" %>
+    <h3 class="text-warning">En attente</h3>
+  <% elsif status == "confirmed" %>
+    <h3 class="text-success">Confirmé</h3>
+  <% elsif status == "declined" %>
+    <h3 class="text-danger">Refusé</h3>
+  <% else %>
+    <h3 class="text-secondary">Terminé</h3>
+  <% end %>
+</div>
