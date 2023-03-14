@@ -1,6 +1,8 @@
 <div class="row" style="margin: 10px;">
-  <%= render 'bookings/booking_status', status: "pending" %>
-  <%= render 'bookings/booking', bookings: filtered.select{ |booking| booking["status"] == "pending" } %>
+  <div class="border text-warning pb-3 ">
+    <%= render 'bookings/booking_status', status: "pending" %>
+    <%= render 'bookings/booking', bookings: filtered.select{ |booking| booking["status"] == "pending" } %>
+  </div>
   <%= render 'bookings/booking_status', status: "confirmed" %>
   <%= render 'bookings/booking', bookings: filtered.select{ |booking| booking["status"] == "confirmed" } %>
   <%= render 'bookings/booking_status', status: "declined" %>
