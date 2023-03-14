@@ -31,14 +31,80 @@ bibi = User.create!(
   password: '123456'
 )
 
-faked = []
-5.times do
-  faked.push(User.create!(
-    email: Faker::Internet.email,
-    username: Faker::Internet.username,
-    password: '123456'
-  ))
-end
+lbevo = User.create!(
+  email: 'lb@syw.ch',
+  username: 'lbevo',
+  password: '123456'
+)
+
+ddlh = User.create!(
+  email: 'ddlh@google.ch',
+  username: 'ddlh',
+  password: '123456'
+)
+
+faus_teen = User.create!(
+  email: 'faufourcad@gmail.com',
+  username: 'faus_teen',
+  password: '123456'
+)
+
+reberman = User.create!(
+  email: 'sven.reb@gmail.com',
+  username: 'reberman',
+  password: '123456'
+)
+
+adri_the_man = User.create!(
+  email: 'adritheman@gmail.com',
+  username: 'adri_the_man',
+  password: '1234566'
+)
+
+jul_lambilly = User.create!(
+  email: 'jul.lamby@gmail.com',
+  username: 'jul_lambilly',
+  password: '123456'
+)
+
+rom_isoz = User.create!(
+  email: 'rom.isoz99@caramail.com',
+  username: 'rom_isoz',
+  password: '123456'
+)
+
+thibo_wagon = User.create!(
+  email: 'tibo.j@lewagon.ch',
+  username: 'thibo_wagon',
+  password: '123456'
+)
+
+monica_geller = User.create!(
+  email: 'monica.geller@hotmail.com',
+  username: 'monica.geller',
+  password: '123456'
+)
+
+joey_tribbiani = User.create!(
+  email: 'joey.tribbiani@gmail.com',
+  username: 'joey_tribbiani',
+  password: '123456'
+)
+
+phoebe_buffay = User.create!(
+  email: 'phoebe.buffay@outthere.com',
+  username: 'phoebs',
+  password: '123456'
+)
+
+# faked = []
+# 5.times do
+#   faked.push(User.create!(
+#     email: Faker::Internet.email,
+#     username: Faker::Internet.username,
+#     password: '123456'
+#   ))
+# end
 
 puts "count user: #{User.count}"
 
@@ -65,9 +131,9 @@ escabeau = Article.new(
   description: "Montants et marches indéformables en profilés d'aluminium. Sertissage multiple robuste. Distance entre marches 235 mm.
   A partir de 7 marches, avec sangles robustes.
   Bac porte-outils grand format.",
-  street: 'route de Broye 10',
-  city: 'Prilly',
-  zipcode: 1008,
+  street: 'ch des bossons 31',
+  city: 'Lausanne',
+  zipcode: 1018,
   available: true,
   user: vallflatt
 )
@@ -78,9 +144,9 @@ file = URI.open("https://images.kkeu.de/is/image/BEG/Outils_%C3%A0_main/Marteaux
 marteau = Article.new(
   name: 'Marteau de serrurier, KS Tools',
   description: "Avec manche en fibre de verre Version forgée",
-  street: 'ch. de pallin 19',
-  city: 'Pully',
-  zipcode: 1009,
+  street: 'ch des bossons 31',
+  city: 'Lausanne',
+  zipcode: 1018,
   available: true,
   user: vallflatt
 )
@@ -95,7 +161,7 @@ karcher = Article.new(
   city: 'Lausanne',
   zipcode: 1004,
   available: true,
-  user: faked.sample
+  user: reberman
 )
 karcher.photo.attach(io: file, filename: "karcher.jpg", content_type: "image/jpg")
 karcher.save
@@ -104,11 +170,11 @@ file = URI.open("https://www.bettybossi.ch/static/angebote/25829/25829_a_f.jpg")
 fer = Article.new(
   name: 'Fer à bricelets',
   description: "Quatre bricelets fins et dorés d'un coup, entretien facile grâce au revêtement antiadhésif",
-  street: 'Ch. de Perréaz 51',
-  city: 'Prilly',
-  zipcode: 1008,
+  street: 'Av. de France 2',
+  city: 'Lausanne',
+  zipcode: 1004,
   available: true,
-  user: faked.sample
+  user: reberman
 )
 fer.photo.attach(io: file, filename: "fer.jpg", content_type: "image/jpg")
 fer.save
@@ -121,7 +187,7 @@ sac_couchage = Article.new(
   city: 'Prilly',
   zipcode: 1008,
   available: true,
-  user: faked.sample
+  user: adri_the_man
 )
 sac_couchage.photo.attach(io: file, filename: "sac_couchage.jpg", content_type: "image/jpg")
 sac_couchage.save
@@ -130,14 +196,42 @@ file = URI.open("https://www.galaxus.ch/im/Files/5/2/6/0/6/2692_0.jpg?impolicy=P
 ponceuse = Article.new(
   name: 'Ponceuse excentrique, 220 W, Bosch',
   description: "La ponceuse orbitale Bosch PEX 220 A avec un moteur puissant de 220 watts assure un ponçage fin avec des performances de ponçage élevées et offre les meilleurs résultats, même pendant le polissage",
-  street: 'Avenue de Lavaux 36',
-  city: 'Pully',
+  street: 'Avenue de la Rochelle 5',
+  city: 'Prilly',
   zipcode: 1009,
   available: true,
-  user: faked.sample
+  user: adri_the_man
 )
 ponceuse.photo.attach(io: file, filename: "ponceuse.jpg", content_type: "image/jpg")
 ponceuse.save
+
+file = URI.open("https://www.123comparer.fr/photoProd/zoom/918/kitchen-chef-kcwood-8-rp-126971.jpg")
+four_a_raclette = Article.new(
+  name: 'Four à raclette 8 postes',
+  description: 'Très bien entretenu, 220V prise suisse',
+  street: 'Route de Broye 10',
+  city: 'Prilly',
+  zipcode: 1008,
+  available: true,
+  user: lbevo
+)
+four_a_raclette.photo.attach(io:file, filename: 'four-a-raclette.jpg', content_type: "image/jpg")
+four_a_raclette.save
+
+file = URI.open("https://imtc.qccdn.fr/test/nettoyeur-de-vitres/produit/karcher-wv2-homeline_001.jpg")
+nettoyeur_vitres = Article.new(
+  name: "nettoyeur à vitres",
+  description: "hyper pratique pour les vitres très sales",
+  street: "ch. de La Vaux 1",
+  city: "Penthaz",
+  zipcode: 1303,
+  available: true,
+  user: lbevo
+)
+nettoyeur_vitres.photo.attach(io:file, filename: 'nettoyeur-vitres.jpg', content_type: "image/jpg")
+nettoyeur_vitres.save
+
+
 
 puts "count article: #{Article.count}"
 
@@ -173,7 +267,7 @@ Booking.create!(
   start_date: "2023-04-02",
   end_date: "2023-04-05",
   status: :confirmed,
-  user: faked.sample,
+  user: lbevo,
   article: escabeau
 )
 
@@ -181,7 +275,7 @@ Booking.create!(
   start_date: "2023-05-01",
   end_date: "2023-05-03",
   status: :declined,
-  user: faked.sample,
+  user: faus_teen,
   article: escabeau
 )
 
