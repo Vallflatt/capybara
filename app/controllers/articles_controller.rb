@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
     location = result.length > 0 && result[0].data ? result[0].data : nil
     # Fetch DB with LIKE search param and NEAR coordinates Load the result instance variable
     if @search != '' && !location.nil?
+      @user_location = [location["lon"], location["lat"]]
       @articles = Article.where("name ILIKE ?", "%#{@search}%").near([location["lat"], location["lon"]], 30)
     else
       @articles = Article.all

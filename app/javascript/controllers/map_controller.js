@@ -4,7 +4,8 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    userlocation: Array,
   }
 
   connect() {
@@ -14,10 +15,19 @@ export default class extends Controller {
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10"
     })
+
+    this.#addUserLocation()
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
   }
 
+  #addUserLocation() {
+    if (this.userlocationValue) {
+      new mapboxgl.Marker({ color: "#FFFFFF" })
+        .setLngLat(this.userlocationValue)
+        .addTo(this.map)
+    }
+  }
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
@@ -25,7 +35,7 @@ export default class extends Controller {
         .on("open", (popup) => {
           const p = popup.target;
 
-          console.log("click", p)
+          // console.log("click", p)
         })
       new mapboxgl.Marker({ color: "#D8833B" })
         .setLngLat([marker.lng, marker.lat])
@@ -36,6 +46,9 @@ export default class extends Controller {
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
+    if (this.userlocationValue) {
+      bounds.extend(this.userlocationValue)
+    }
     this.markersValue.forEach(marker => bounds.extend([marker.lng, marker.lat]))
     this.map.fitBounds(bounds, { padding: 60, maxZoom: 15, duration: 0 })
   }
