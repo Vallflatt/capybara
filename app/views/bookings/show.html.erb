@@ -14,6 +14,7 @@
   <div class="card mt-2 bg-light" style=" border-radius: 5px; padding: 8px;">
     <div class="card-body">
       <p><%= @booking.article.name %></p>
+      <p><%= @booking.article.address %></p>
       <p>Du <%= @booking.start_date.strftime('%d.%m.%Y') %> au <%= @booking.end_date.strftime('%d.%m.%Y') %></p>
       <p>Demandé le <%= @booking.created_at.strftime('%d.%m.%Y') %> par Capy <%= @booking.user.username %></p>
     </div>
