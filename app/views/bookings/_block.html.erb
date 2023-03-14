@@ -1,12 +1,18 @@
-<div class="row" style="margin: 10px;">
-  <div class="border text-warning pb-3 ">
-    <%= render 'bookings/booking_status', status: "pending" %>
+<div class="row my-row" style="margin: 10px;">
+  <div class="border border-2 border-warning pb-1 mb-3 mt-3" style=" border-radius: 5px; padding: 8px;">
+    <div class="mb-3"><%= render 'bookings/booking_status', status: "pending" %></div>
     <%= render 'bookings/booking', bookings: filtered.select{ |booking| booking["status"] == "pending" } %>
   </div>
-  <%= render 'bookings/booking_status', status: "confirmed" %>
-  <%= render 'bookings/booking', bookings: filtered.select{ |booking| booking["status"] == "confirmed" } %>
-  <%= render 'bookings/booking_status', status: "declined" %>
-  <%= render 'bookings/booking', bookings: filtered.select{ |booking| booking["status"] == "declined" } %>
-  <%= render 'bookings/booking_status', status: "finished" %>
-  <%= render 'bookings/booking', bookings: filtered.select{ |booking| booking["status"] == "finished" } %>
+  <div class="border border-2 border-success pb-1 mb-3 mt-3" style=" border-radius: 5px; padding: 8px;">
+    <div class="mb-3"><%= render 'bookings/booking_status', status: "confirmed" %></div>
+    <%= render 'bookings/booking', bookings: filtered.select{ |booking| booking["status"] == "confirmed" } %>
+  </div>
+  <div class="border border-2 border-danger pb-1 mb-3 mt-3" style=" border-radius: 5px; padding: 8px;">
+    <div class="mb-3"><%= render 'bookings/booking_status', status: "declined" %></div>
+    <%= render 'bookings/booking', bookings: filtered.select{ |booking| booking["status"] == "declined" } %>
+  </div>
+  <div class="border border-2 pb-1 mb-3 mt-3" style=" border-radius: 5px; padding: 8px;">
+    <div class="mb-3"><%= render 'bookings/booking_status', status: "finished" %></div>
+    <%= render 'bookings/booking', bookings: filtered.select{ |booking| booking["status"] == "finished" } %>
+  </div>
 </div>
