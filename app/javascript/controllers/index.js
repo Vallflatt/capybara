@@ -9,3 +9,6 @@ application.register("search", SearchController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import BookingdateController from "./bookingdate_controller"
+application.register("bookingdate", BookingdateController)

@@ -13,3 +13,7 @@
 a {
   text-decoration: none;
 }
+
+.nav-link:not(.active) {
+  color: black;
+}
