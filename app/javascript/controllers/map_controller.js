@@ -5,12 +5,26 @@ export default class extends Controller {
   static values = {
     apiKey: String,
     markers: Array,
-    userlocation: Array,
+    userlocation: Object,
   }
+  static targets = ["locationError", "markerError"]
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
+    if (this.hasLocation && this.hasMarker) {
+      this.#bootMap()
+    } else {
+      if (!this.hasLocation) {
+        this.locationErrorTarget.style.display = "block";
+      }
+      if (!this.hasMarker) {
+        this.markerErrorTarget.style.display = "block";
+      }
+    }
+  }
+
+  #bootMap() {
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10"
@@ -22,11 +36,13 @@ export default class extends Controller {
   }
 
   #addUserLocation() {
-    if (this.userlocationValue.length > 0) {
+    if (this.hasLocation) {
+      const popup = new mapboxgl.Popup().setHTML(this.userlocationValue.info_window_html)
       const el = document.createElement('div');
       el.className = 'marker';
       new mapboxgl.Marker(el)
-        .setLngLat(this.userlocationValue)
+        .setLngLat(this.userlocationValue.location)
+        .setPopup(popup)
         .addTo(this.map)
     }
   }
@@ -47,11 +63,18 @@ export default class extends Controller {
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
-    if (this.userlocationValue.length > 0) {
-      bounds.extend(this.userlocationValue)
+    if (this.hasLocation) {
+      bounds.extend(this.userlocationValue.location)
     }
     this.markersValue.forEach(marker => bounds.extend([marker.lng, marker.lat]))
     this.map.fitBounds(bounds, { padding: 60, maxZoom: 15, duration: 0 })
   }
 
+  get hasLocation() {
+    return this.userlocationValue.location.length == 2
+  }
+
+  get hasMarker() {
+    return this.markersValue.length > 0
+  }
 }
