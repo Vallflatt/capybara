@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
       @user_location = [location["lon"], location["lat"]]
       @articles = Article.where("name ILIKE ?", "%#{@search}%").near([location["lat"], location["lon"]], 30)
     else
+      @user_location = []
       @articles = Article.all
     end
     # Do the view
