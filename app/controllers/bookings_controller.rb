@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  # TODO Secure root when auth is ready
+  # TODO: Secure root when auth is ready
   skip_before_action :authenticate_user!, only: %i[show]
   before_action :set_article, only: %i[new create confirm]
 
@@ -8,11 +8,11 @@ class BookingsController < ApplicationController
 
     # Fetch all bookings for that article and map them as array of dates
     # between start and end dates
-    booked_dates = Booking.where({article: @article}).all.map do |booking|
+    booked_dates = Booking.where({ article: @article }).all.map do |booking|
       (booking.start_date..booking.end_date).to_a
     end
     # Flatten the array of arrays and map all dates to string yyyy-mm-dd
-    @reserved = booked_dates.flatten.map {|date| date.strftime('%Y-%m-%d')}
+    @reserved = booked_dates.flatten.map { |date| date.strftime('%Y-%m-%d') }
   end
 
   def create
@@ -39,9 +39,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
 
     # In case the from is sent without a status, we keep to old one
-    if params[:booking][:status] == ""
-      params[:booking][:status] = @booking.status
-    end
+    params[:booking][:status] = @booking.status if params[:booking][:status] == ""
 
     @booking.update(booking_update_params)
     redirect_to bookings_path
@@ -50,17 +48,17 @@ class BookingsController < ApplicationController
   def show
     # Show details display here
     @booking = Booking.find(params[:id])
-    if @booking.user_id != current_user.id && @booking.article.user_id != current_user.id
-      redirect_to bookings_path
-    end
+    return unless @booking.user_id != current_user.id && @booking.article.user_id != current_user.id
+
+    redirect_to bookings_path
   end
 
   def destroy
   end
 
   def index
-    @borrowed = Booking.where(user: current_user).all
-    @lent = Booking.joins(:article).where(article: { user: current_user })
+    @borrowed = Booking.where(user: current_user).order('id DESC').all
+    @lent = Booking.joins(:article).where(article: { user: current_user }).order('id DESC')
   end
 
   private
@@ -76,5 +74,4 @@ class BookingsController < ApplicationController
   def set_article
     @article = Article.find(params[:article_id])
   end
-
 end
