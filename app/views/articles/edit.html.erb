@@ -1,10 +1,12 @@
-<div class="homepage text-center fs-4 my-5">
-  <p>Modifier l'article</p>
+<div class="homepage text-center my-5">
+  <h2>Modifier l'article</h2>
 </div>
-<div style="padding: 0px 20px 0px 20px">
-  <%= render "form", article: @article %>
-</div>
-<br>
-<div class="col d-flex justify-content-center" style="margin-bottom: 20px;">
-  <button onclick="history.back()" class='btn btn-secondary text-white' style="border-radius: 25px; color: white; width: 130px">Retour</button>
+<div class="mb-3">
+  <div class="px-2">
+    <%= render "form", article: @article %>
+  </div>
+  <br>
+  <div class="col d-flex justify-content-center">
+    <button onclick="history.back()" class='btn btn-secondary text-white rounded-pill'>Retour</button>
+  </div>
 </div>

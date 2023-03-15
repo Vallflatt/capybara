@@ -1,11 +1,11 @@
 <div class="article-index">
-  <div class="text-center mt-5">
+  <div class="text-center my-5">
     <h2>Mes objets</h2>
   </div>
   <div class="row">
     <% @articles.each do |article| %>
       <div class="col-12">
-        <div class="card m-3 rounded p-3">
+        <div class="card mb-5 rounded p-3">
           <img src="<%= cl_image_path article.photo.key %>" class="article-picture">
           <div class="bg-light card mt-2 rounded p-3">
             <%= article.name %>
