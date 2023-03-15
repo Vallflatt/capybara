@@ -22,7 +22,7 @@ export default class extends Controller {
   }
 
   #addUserLocation() {
-    if (this.userlocationValue) {
+    if (this.userlocationValue.length > 0) {
       const el = document.createElement('div');
       el.className = 'marker';
       new mapboxgl.Marker(el)
@@ -47,7 +47,7 @@ export default class extends Controller {
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
-    if (this.userlocationValue) {
+    if (this.userlocationValue.length > 0) {
       bounds.extend(this.userlocationValue)
     }
     this.markersValue.forEach(marker => bounds.extend([marker.lng, marker.lat]))
