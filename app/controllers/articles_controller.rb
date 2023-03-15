@@ -10,17 +10,22 @@ class ArticlesController < ApplicationController
     # Get search param and address
     @search = params.has_key?(:search) ? params["search"] : ''
     @address = params.has_key?(:address) ? params["address"] : ''
+    @user_location = {
+      location: [],
+      info_window_html: render_to_string(partial: "user_popup")
+    }
+    @articles = []
+
     # Calculate coordinate from address https://medium.com/@tali.scheer/ruby-geocoder-gem-9733650e9339
     result = Geocoder.search(params["address"])
     location = result.length > 0 && result[0].data ? result[0].data : nil
     # Fetch DB with LIKE search param and NEAR coordinates Load the result instance variable
     if @search != '' && !location.nil?
-      @user_location = [location["lon"], location["lat"]]
+      @user_location[:location] = [location["lon"], location["lat"]]
       @articles = Article.where("name ILIKE ?", "%#{@search}%").near([location["lat"], location["lon"]], 30)
-    else
-      @user_location = []
-      @articles = Article.all
     end
+
+    @user_location = @user_location.to_json
     # Do the view
 
     # The `geocoded` scope filters only flats with coordinates

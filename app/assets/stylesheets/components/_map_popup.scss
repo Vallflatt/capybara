@@ -1,0 +1,32 @@
+.user-popup {
+  font-size: $font-size-medium;
+  padding: 1rem;
+  background-color: white;
+}
+
+.item-popup {
+  width: 310px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
+  padding: 0px 0px 0px 0px;
+
+  .botton {
+    &:focus-visible {
+      outline: none;
+    }
+
+    a {
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    button {
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+
+}
