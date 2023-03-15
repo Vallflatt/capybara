@@ -444,20 +444,6 @@ echelle_faustine = Article.new(
 echelle_faustine.photo.attach(io:file, filename: 'echelle-faust.jpg', content_type: "image/jpg")
 echelle_faustine.save
 
-file = URI.open("https://www.galaxus.ch/im/Files/5/3/1/8/0/0/3/2/22463_StarSense_Explorer_DX_6-SCT_06_570x3803x.jpg")
-telescope_jul = Article.new(
-  name: "téléscope professionnel Celestron StarSense",
-  description: "modèle Explorer DX 6 SCT, facile à utiliser sans connaissances du ciel",
-  street: "Rue du Bugnon 1",
-  city: "Renens",
-  zipcode: 1020,
-  available: true,
-  user: jul_lambilly
-)
-
-telescope_jul.photo.attach(io:file, filename: 'telescop-jul.jpg', content_type: "image/jpg")
-telescope_jul.save
-
 file = URI.open("https://can01.anibis.ch/Perceuses-Perceuse-Einhell-TE-RH-26-1-4F---272856/?1024x768/3/60/anibis/120/340/047/YGVuPJ-ZjkOjPpu1cUX0sg_1.jpg")
 perceuse_puissante_jul = Article.new(
   name: "perceuse puissante",
@@ -710,6 +696,20 @@ fer_bricelets_joey = Article.new(
 
 fer_bricelets_joey.photo.attach(io:file, filename: 'fer-bricelets-joey.jpg', content_type: "image/jpg")
 fer_bricelets_joey.save
+
+file = URI.open("https://www.galaxus.ch/im/Files/5/3/1/8/0/0/3/2/22463_StarSense_Explorer_DX_6-SCT_06_570x3803x.jpg")
+telescope_jul = Article.new(
+  name: "téléscope professionnel Celestron StarSense",
+  description: "modèle Explorer DX 6 SCT, facile à utiliser sans connaissances du ciel",
+  street: "Rue du Bugnon 1",
+  city: "Renens",
+  zipcode: 1020,
+  available: true,
+  user: jul_lambilly
+)
+
+telescope_jul.photo.attach(io:file, filename: 'telescop-jul.jpg', content_type: "image/jpg")
+telescope_jul.save
 
 puts "count article: #{Article.count}"
 
