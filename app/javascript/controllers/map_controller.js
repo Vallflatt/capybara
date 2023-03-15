@@ -22,8 +22,10 @@ export default class extends Controller {
   }
 
   #addUserLocation() {
-    if (this.userlocationValue) {
-      new mapboxgl.Marker({ color: "#FFFFFF" })
+    if (this.userlocationValue.length > 0) {
+      const el = document.createElement('div');
+      el.className = 'marker';
+      new mapboxgl.Marker(el)
         .setLngLat(this.userlocationValue)
         .addTo(this.map)
     }
@@ -34,10 +36,9 @@ export default class extends Controller {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
         .on("open", (popup) => {
           const p = popup.target;
-
           // console.log("click", p)
         })
-      new mapboxgl.Marker({ color: "#D8833B" })
+      new mapboxgl.Marker({ color: "#00FF00" })
         .setLngLat([marker.lng, marker.lat])
         .setPopup(popup)
         .addTo(this.map)
@@ -46,7 +47,7 @@ export default class extends Controller {
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
-    if (this.userlocationValue) {
+    if (this.userlocationValue.length > 0) {
       bounds.extend(this.userlocationValue)
     }
     this.markersValue.forEach(marker => bounds.extend([marker.lng, marker.lat]))
