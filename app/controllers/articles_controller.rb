@@ -22,7 +22,8 @@ class ArticlesController < ApplicationController
     # Fetch DB with LIKE search param and NEAR coordinates Load the result instance variable
     if @search != '' && !location.nil?
       @user_location[:location] = [location["lon"], location["lat"]]
-      @articles = Article.where("name ILIKE ?", "%#{@search}%").near([location["lat"], location["lon"]], 30)
+      @articles = Article.where("name ILIKE ? OR description ILIKE ?", "%#{@search}%", "%#{@search}%")
+                         .near([location["lat"], location["lon"]], 30)
     end
 
     @user_location = @user_location.to_json

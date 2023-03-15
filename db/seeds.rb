@@ -444,20 +444,6 @@ echelle_faustine = Article.new(
 echelle_faustine.photo.attach(io:file, filename: 'echelle-faust.jpg', content_type: "image/jpg")
 echelle_faustine.save
 
-file = URI.open("https://www.galaxus.ch/im/Files/5/3/1/8/0/0/3/2/22463_StarSense_Explorer_DX_6-SCT_06_570x3803x.jpg")
-telescope_jul = Article.new(
-  name: "téléscope professionnel Celestron StarSense",
-  description: "modèle Explorer DX 6 SCT, facile à utiliser sans connaissances du ciel",
-  street: "Rue du Bugnon 1",
-  city: "Renens",
-  zipcode: 1020,
-  available: true,
-  user: jul_lambilly
-)
-
-telescope_jul.photo.attach(io:file, filename: 'telescop-jul.jpg', content_type: "image/jpg")
-telescope_jul.save
-
 file = URI.open("https://can01.anibis.ch/Perceuses-Perceuse-Einhell-TE-RH-26-1-4F---272856/?1024x768/3/60/anibis/120/340/047/YGVuPJ-ZjkOjPpu1cUX0sg_1.jpg")
 perceuse_puissante_jul = Article.new(
   name: "perceuse puissante",
@@ -655,20 +641,6 @@ scie_circul_joey = Article.new(
 scie_circul_joey.photo.attach(io:file, filename: 'scie-circul-joey.jpg', content_type: "image/jpg")
 scie_circul_joey.save
 
-file = URI.open("https://can01.anibis.ch/Tondeuses-a-gazon-Tracteur-a-gazon-tondeuse-Cub-Cadet/?512x384/3/60/anibis/479/324/047/zMxMG30t40mCewabdDaEjA_1.jpg")
-tondeuse_tracteur_joey = Article.new(
-  name: "tondeuse à gazon tracteur",
-  description: "pour tondre en restant assis: Tracteur Cub Cadet",
-  street: "Chemin du Fau-Blanc 15",
-  city: "Pully",
-  zipcode: 1009,
-  available: true,
-  user: joey_tribbiani
-)
-
-tondeuse_tracteur_joey.photo.attach(io:file, filename: 'tondeuse-joey.jpg', content_type: "image/jpg")
-tondeuse_tracteur_joey.save
-
 file = URI.open("https://can01.anibis.ch/Autres-Four-a-raclette/?512x384/3/60/anibis/386/741/046/OSRZBIUDaUOr0j_dlof15Q_1.jpg")
 four_raclette_joey = Article.new(
   name: "four à raclette 6 personnes",
@@ -696,6 +668,36 @@ bassine_confiture_joey = Article.new(
 
 bassine_confiture_joey.photo.attach(io:file, filename: 'bassine-confiture-joey.jpg', content_type: "image/jpg")
 bassine_confiture_joey.save
+
+
+file = URI.open("https://can01.anibis.ch/Tondeuses-a-gazon-Tracteur-a-gazon-tondeuse-Cub-Cadet/?512x384/3/60/anibis/479/324/047/zMxMG30t40mCewabdDaEjA_1.jpg")
+tondeuse_tracteur_robin = Article.new(
+  name: "tondeuse à gazon tracteur",
+  description: "pour tondre en restant assis: Tracteur Cub Cadet",
+  street: "Chemin du Fau-Blanc 15",
+  city: "Pully",
+  zipcode: 1009,
+  available: true,
+  user: robin
+)
+
+tondeuse_tracteur_robin.photo.attach(io:file, filename: 'tondeuse-joey.jpg', content_type: "image/jpg")
+tondeuse_tracteur_robin.save
+
+
+file = URI.open("https://www.galaxus.ch/im/Files/5/3/1/8/0/0/3/2/22463_StarSense_Explorer_DX_6-SCT_06_570x3803x.jpg")
+telescope_jul = Article.new(
+  name: "téléscope professionnel Celestron StarSense",
+  description: "modèle Explorer DX 6 SCT, facile à utiliser sans connaissances du ciel",
+  street: "Rue du Bugnon 1",
+  city: "Renens",
+  zipcode: 1020,
+  available: true,
+  user: jul_lambilly
+)
+
+telescope_jul.photo.attach(io:file, filename: 'telescop-jul.jpg', content_type: "image/jpg")
+telescope_jul.save
 
 file = URI.open("https://can01.anibis.ch/Autres-Fer-a-bricelet-Jura/?512x384/3/60/anibis/950/194/047/V1114kJhoUuiM0ztlQXt1A_1.jpg")
 fer_bricelets_joey = Article.new(
