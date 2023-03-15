@@ -43,6 +43,12 @@ ddlh = User.create!(
   password: '123456'
 )
 
+robin = User.create!(
+  email: 'rgoodyear@gmail.com',
+  username: 'robin',
+  password: '123456'
+)
+
 faus_teen = User.create!(
   email: 'faufourcad@gmail.com',
   username: 'faus_teen',
@@ -142,7 +148,7 @@ escabeau.save
 
 file = URI.open("https://images.kkeu.de/is/image/BEG/Outils_%C3%A0_main/Marteaux/Marteau_de_serrurier_forme_fran%C3%A7aise_pdplarge-mrd--640765_AFS_00_00_00_5943427.jpg?wid=390&hei=390")
 marteau = Article.new(
-  name: 'Marteau de serrurier, KS Tools',
+  name: 'marteau de serrurier, KS Tools',
   description: "Avec manche en fibre de verre Version forgée",
   street: 'ch des bossons 31',
   city: 'Lausanne',
@@ -155,7 +161,7 @@ marteau.save
 
 file = URI.open("https://images.kkeu.de/is/image/BEG/Machines_de_nettoyage/Nettoyeurs_haute_pression/Nettoyeur_haute_pression_%C3%A0_eau_chaude_HDS_8_18-4C_pdplarge-mrd--000039186449_PRD_org_all.jpg?wid=390&hei=390")
 karcher = Article.new(
-  name: 'Kärcher Nettoyeur haute pression à eau chaude ',
+  name: 'kärcher Nettoyeur haute pression à eau chaude ',
   description: "facile d'utilisation au moyen d'un seul bouton",
   street: 'av. de France 2',
   city: 'Lausanne',
@@ -168,7 +174,7 @@ karcher.save
 
 file = URI.open("https://www.bettybossi.ch/static/angebote/25829/25829_a_f.jpg")
 fer = Article.new(
-  name: 'Fer à bricelets',
+  name: 'fer à bricelets',
   description: "Quatre bricelets fins et dorés d'un coup, entretien facile grâce au revêtement antiadhésif",
   street: 'Av. de France 2',
   city: 'Lausanne',
@@ -182,7 +188,7 @@ fer.save
 file = URI.open("https://www.anibis.ch/fr/d-m%c3%a9nage-~-maison-autres--682/centrale-vapeur-braun--47087213.aspx?fts=centrale+vapeur&pi=1&ps=20&pr=1")
 centrale_vapeur = Article.new(
   name: "centrale vapeur",
-  description: "Centrale vapeur Braun CareStyle Compact",
+  description: "centrale vapeur Braun CareStyle Compact",
   street: 'Av. de France 2',
   zipcode: 1004,
   available: true,
@@ -206,7 +212,7 @@ robot_cuisine_kenwood.save
 
 file = URI.open("https://www.pearl.ch/images/product_images/info_images/nx7589_2.jpg")
 sac_couchage = Article.new(
-  name: 'Sac de couchage sarcophage 3 saisons 300 g/m²',
+  name: 'sac de couchage sarcophage 3 saisons 300 g/m²',
   description: "Idéal pour le camping estival, ce sac de couchage 3 saisons est également parfaitement adapté aux nuits plus fraîches du printemps et de l'automne.",
   street: 'Avenue de la Rochelle 5',
   city: 'Prilly',
@@ -219,7 +225,7 @@ sac_couchage.save
 
 file = URI.open("https://www.galaxus.ch/im/Files/5/2/6/0/6/2692_0.jpg?impolicy=ProductTileImage&resizeWidth=648&resizeHeight=486&cropWidth=648&cropHeight=486&resizeType=downsize&quality=high")
 ponceuse = Article.new(
-  name: 'Ponceuse excentrique, 220 W, Bosch',
+  name: 'ponceuse excentrique, 220 W, Bosch',
   description: "La ponceuse orbitale Bosch PEX 220 A avec un moteur puissant de 220 watts assure un ponçage fin avec des performances de ponçage élevées et offre les meilleurs résultats, même pendant le polissage",
   street: 'Avenue de la Rochelle 5',
   city: 'Prilly',
@@ -260,7 +266,7 @@ machine_a_pain_adri.save
 
 file = URI.open("https://www.123comparer.fr/photoProd/zoom/918/kitchen-chef-kcwood-8-rp-126971.jpg")
 four_a_raclette = Article.new(
-  name: 'Four à raclette 8 postes',
+  name: 'four à raclette 8 postes',
   description: 'Très bien entretenu, 220V prise suisse',
   street: 'Route de Broye 10',
   city: 'Prilly',
@@ -519,10 +525,191 @@ scie_metal_rom = Article.new(
   user: rom_isoz
 )
 
+scie_metal_rom.photo.attach(io:file, filename: 'scie-metal-rom.jpg', content_type: "image/jpg")
+scie_metal_rom.save
+
+file = URI.open("https://can01.anibis.ch/Tondeuses-a-gazon-Tondeuse-a-gazon-manuelle/?512x384/3/60/anibis/443/359/045/ll7daBgekEWG2oZN5hc0-Q_1.jpg")
+tondeuse_gazon_rom = Article.new(
+  name: "tondeuse à gazon manuelle",
+  description: "Plus toute jeune mais elle fait son job, permet de rester en forme aussi",
+  street: "Maisons Familiales 5",
+  city: "Lausanne",
+  zipcode: 1018,
+  available: true,
+  user: rom_isoz
+)
+
+tondeuse_gazon_rom.photo.attach(io:file, filename: 'tondeuse-rom.jpg', content_type: "image/jpg")
+tondeuse_gazon_rom.save
+
+file = URI.open("https://can01.anibis.ch/Marteaux-Marteau---marteau-1kg-(Nouveau)/?512x384/3/60/anibis/803/532/045/KPAY_G4m9kyyp85VtDD9Ig_1.jpg")
+marteau_thibo = Article.new(
+  name: "marteau de paveur avec manche",
+  description: "Marteau-pioche 1000g DEMA avec manche ergonomique",
+  street: "Ch. de Perreaz 51",
+  city: "Prilly",
+  zipcode: 1008,
+  available: true,
+  user: thibo_wagon
+)
+
+marteau_thibo.photo.attach(io:file, filename: 'marteau-thibo.jpg', content_type: "image/jpg")
+marteau_thibo.save
+
+file = URI.open("https://can01.anibis.ch/Tondeuses-a-gazon-tondeuse-a-gazon-electrique/?512x384/3/60/anibis/451/120/045/z17nwlSaG0iwf52fk3_3cw_1.jpg")
+tondeuse_thibo = Article.new(
+  name: "tondeuse à gazon électrique",
+  description: "plus écolo qu'une tondeuse à essence, Wolf E32",
+  street: "Ch. de Perreaz 51",
+  city: "Prilly",
+  zipcode: 1008,
+  available: true,
+  user: thibo_wagon
+)
+
+tondeuse_thibo.photo.attach(io:file, filename: 'tondeuse-thibo.jpg', content_type: "image/jpg")
+tondeuse_thibo.save
+
+file = URI.open("https://can01.anibis.ch/Aspirateurs---accessoires-shampooineuse-aspirateur/?1024x768/3/60/anibis/259/738/046/3BBAhqGYP0WAodFSu63Psw_1.jpg")
+shampouineuse_thibo = Article.new(
+  name: "shampooineuse aspirateur",
+  description: "petite schampoineuse brosseuse avec aspiration pour tapis",
+  street: "Ch. de Perreaz 51",
+  city: "Prilly",
+  zipcode: 1008,
+  available: true,
+  user: thibo_wagon
+)
+
+shampouineuse_thibo.photo.attach(io:file, filename: 'shampouineuse-thibo.jpg', content_type: "image/jpg")
+shampouineuse_thibo.save
 
 
+file = URI.open("https://can01.anibis.ch/Cuivres---Etains-Bassine-a-confitures/?1024x768/3/60/anibis/397/910/046/_skCilkSI0KcEW_vkkBAXg_1.jpg")
+bassine_confiture_monica = Article.new(
+  name: "bassine à confitures",
+  description: "en cuivre, diamètre sup. 35 cm. diamètre inf, 20 cm. hauteur 15 cm.",
+  street: "Avenue de Lavaux 36",
+  city: "Pully",
+  zipcode: 1009,
+  available: true,
+  user: monica_geller
+)
 
+bassine_confiture_monica.photo.attach(io:file, filename: 'bassine-monica.jpg', content_type: "image/jpg")
+bassine_confiture_monica.save
 
+file = URI.open("https://can01.anibis.ch/Poncer---raboter-Ponceuse-Bosch/?512x384/3/60/anibis/404/010/047/lPJ8pX-1u0K8fPrw9TGIsw_1.jpg")
+ponceuse_phoebe = Article.new(
+  name: "ponceuse",
+  description: "PRR 250ES pour gros travaux",
+  street: "Rue des Terreaux 2",
+  city: "Lausanne",
+  zipcode: 1003,
+  available: true,
+  user: phoebe_buffay
+)
+
+ponceuse_phoebe.photo.attach(io:file, filename: 'ponceuse-phoebe.jpg', content_type: "image/jpg")
+ponceuse_phoebe.save
+
+file = URI.open("https://can01.anibis.ch/Autres-Magnifique-caquelon-A-Fondue-a-letat-neuf/?512x384/3/60/anibis/199/265/047/sNH_xU6L8EKqbAAeltgWfw_1.jpg")
+caquelon_phoebe = Article.new(
+  name: "caquelon à fondue",
+  description: "Pour six à huit personnes en terre cuite renforcé",
+  street: "Rue des Terreaux 2",
+  city: "Lausanne",
+  zipcode: 1003,
+  available: true,
+  user: phoebe_buffay
+)
+
+caquelon_phoebe.photo.attach(io:file, filename: 'caquelon-phoebe.jpg', content_type: "image/jpg")
+caquelon_phoebe.save
+
+file = URI.open("https://can01.anibis.ch/Scier,-hacher---tronconner-Scie-sauteuse/?512x384/3/60/anibis/134/519/029/o0K7OOL0NkSFRHB8Vt3enQ_1.jpg")
+scie_sauteuse_phoebe = Article.new(
+  name: "scie sauteuse",
+  description: "Black & Decker",
+  street: "Rue des Terreaux 2",
+  city: "Lausanne",
+  zipcode: 1003,
+  available: true,
+  user: phoebe_buffay
+)
+
+scie_sauteuse_phoebe.photo.attach(io:file, filename: 'scie-sauteuse-phoebe.jpg', content_type: "image/jpg")
+scie_sauteuse_phoebe.save
+
+file = URI.open("https://can01.anibis.ch/Scier,-hacher---tronconner-Scie-circulaire/?512x384/3/60/anibis/862/322/047/IdWy5pRP9k27aucVKLvFIg_1.jpg")
+scie_circul_joey = Article.new(
+  name: "scie circulaire",
+  description: "Bosch, PKS 54",
+  street: "Chemin du Fau-Blanc 15",
+  city: "Pully",
+  zipcode: 1009,
+  available: true,
+  user: joey_tribbiani
+)
+
+scie_circul_joey.photo.attach(io:file, filename: 'scie-circul-joey.jpg', content_type: "image/jpg")
+scie_circul_joey.save
+
+file = URI.open("https://can01.anibis.ch/Tondeuses-a-gazon-Tracteur-a-gazon-tondeuse-Cub-Cadet/?512x384/3/60/anibis/479/324/047/zMxMG30t40mCewabdDaEjA_1.jpg")
+tondeuse_tracteur_joey = Article.new(
+  name: "tondeuse à gazon tracteur",
+  description: "pour tondre en restant assis: Tracteur Cub Cadet",
+  street: "Chemin du Fau-Blanc 15",
+  city: "Pully",
+  zipcode: 1009,
+  available: true,
+  user: joey_tribbiani
+)
+
+tondeuse_tracteur_joey.photo.attach(io:file, filename: 'tondeuse-joey.jpg', content_type: "image/jpg")
+tondeuse_tracteur_joey.save
+
+file = URI.open("https://can01.anibis.ch/Autres-Four-a-raclette/?512x384/3/60/anibis/386/741/046/OSRZBIUDaUOr0j_dlof15Q_1.jpg")
+four_raclette_joey = Article.new(
+  name: "four à raclette 6 personnes",
+  description: "avec 8 poêlons pour un repas festif entre Capys!",
+  street: "Chemin du Fau-Blanc 15",
+  city: "Pully",
+  zipcode: 1009,
+  available: true,
+  user: joey_tribbiani
+)
+
+four_raclette_joey.photo.attach(io:file, filename: 'four-raclette-joey.jpg', content_type: "image/jpg")
+four_raclette_joey.save
+
+file = URI.open("https://can01.anibis.ch/Objets-de-decoration-Confiturier/?512x384/3/60/anibis/749/323/047/j7jbyYz9X0GNoPnACnNMZw_1.jpg")
+bassine_confiture_joey = Article.new(
+  name: "bassine à confitures",
+  description: "en cuivre assez grande pour faire beaucoup de confiture!",
+  street: "Chemin du Fau-Blanc 15",
+  city: "Pully",
+  zipcode: 1009,
+  available: true,
+  user: joey_tribbiani
+)
+
+bassine_confiture_joey.photo.attach(io:file, filename: 'bassine-confiture-joey.jpg', content_type: "image/jpg")
+bassine_confiture_joey.save
+
+file = URI.open("https://can01.anibis.ch/Autres-Fer-a-bricelet-Jura/?512x384/3/60/anibis/950/194/047/V1114kJhoUuiM0ztlQXt1A_1.jpg")
+fer_bricelets_joey = Article.new(
+  name: "fer à bricelets",
+  description: "marque Jura, très haute qualité, les bricelets sont toujours réussis",
+  street: "Chemin du Fau-Blanc 15",
+  city: "Pully",
+  zipcode: 1009,
+  available: true,
+  user: joey_tribbiani
+)
+
+fer_bricelets_joey.photo.attach(io:file, filename: 'fer-bricelets-joey.jpg', content_type: "image/jpg")
+fer_bricelets_joey.save
 
 puts "count article: #{Article.count}"
 
@@ -531,11 +718,12 @@ puts "count article: #{Article.count}"
 # -------------------------------
 
 Booking.create!(
-  start_date: "2023-03-15",
-  end_date: "2023-03-16",
+  start_date: "2023-03-17",
+  end_date: "2023-03-18",
   status: :confirmed,
   user: bibi,
-  article: perceuse
+  article: perceuse,
+  message: "hello, tu peux venir chercher le 16 au soir dès 19h"
 )
 
 Booking.create!(
@@ -543,7 +731,8 @@ Booking.create!(
   end_date: "2023-03-27",
   status: :pending,
   user: bibi,
-  article: perceuse
+  article: perceuse,
+  message: "devant l'immeuble dès 8h le 25"
 )
 
 Booking.create!(
@@ -551,7 +740,8 @@ Booking.create!(
   end_date: "2023-03-30",
   status: :finished,
   user: bibi,
-  article: perceuse
+  article: perceuse,
+  message: "merci!"
 )
 
 Booking.create!(
@@ -559,7 +749,8 @@ Booking.create!(
   end_date: "2023-04-05",
   status: :confirmed,
   user: lbevo,
-  article: escabeau
+  article: escabeau,
+  message: "tu peux venir le 2 devant chez moi"
 )
 
 Booking.create!(
@@ -567,7 +758,8 @@ Booking.create!(
   end_date: "2023-05-03",
   status: :declined,
   user: faus_teen,
-  article: escabeau
+  article: escabeau,
+  message: "désolée, j'en ai besoin sur ces dates là!"
 )
 
 puts "count booking: #{Booking.count}"
