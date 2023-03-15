@@ -9,6 +9,7 @@
           <div class="carousel-item-name mb-2" style="font-size: 14px"><%= booking.article.name %></div>
           <% if current_user.username != booking.user.username%>
             <div class="carousel-item-description mb-1" style="font-size: 12px">Demande de: <%= booking.user.username %></div>
+            <div class="carousel-item-description mb-1" style="font-size: 12px">Booking Id:<%= booking.id %></div>
           <% end %>
           <div class="carousel-item-description mb-1" style="font-size: 12px">Du: <%= booking.start_date.strftime('%d.%m.%Y') %> au <%= booking.end_date.strftime('%d.%m.%Y') %></div>
           <% if current_user.username == booking.user.username%>
