@@ -14,7 +14,7 @@
         <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
           <a href="<%= new_article_booking_path(article.id) %>">
             <div class="carousel-item-container">
-              <div class="w-50">
+              <div class="carousel-item-image">
                 <img src="<%= cl_image_path article.photo.key %>" class="d-block w-75" alt="...">
               </div>
               <div class="carousel-item-info">
