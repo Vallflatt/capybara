@@ -1,18 +1,18 @@
 <% bookings.each do |booking| %>
-  <div class="card mt-2 col-12 col-md-6" style="border-radius=5px;margin-top: 40px;padding: 8px;border-radius: 5px;">
+  <div class="card rounded p-3 mt-3 col-12 col-md-6">
     <a href="<%= booking_path(booking.id) %>">
       <div class="carousel-item-container">
         <div class="w-50">
           <img src="<%= cl_image_path booking.article.photo.key %>" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item-info">
-          <div class="carousel-item-name mb-2" style="font-size: 14px"><%= booking.article.name %></div>
+          <div class="carousel-item-name mb-1 fs-6"><%= booking.article.name %></div>
           <% if current_user.username != booking.user.username%>
-            <div class="carousel-item-description mb-1" style="font-size: 12px">Demande de: <%= booking.user.username %></div>
+            <div class="carousel-item-description mb-1 fs-6">Demande de: <%= booking.user.username %></div>
           <% end %>
-          <div class="carousel-item-description mb-1" style="font-size: 12px">Du: <%= booking.start_date.strftime('%d.%m.%Y') %> au <%= booking.end_date.strftime('%d.%m.%Y') %></div>
+          <div class="carousel-item-description mb-1 fs-6">Du: <%= booking.start_date.strftime('%d.%m.%Y') %> au <%= booking.end_date.strftime('%d.%m.%Y') %></div>
           <% if current_user.username == booking.user.username%>
-            <div class="carousel-item-description mb-1" style="font-size: 12px">A rendre à: <%= booking.article.user.username %></div>
+            <div class="carousel-item-description mb-1 fs-6">A rendre à: <%= booking.article.user.username %></div>
           <% end %>
         </div>
       </div>
