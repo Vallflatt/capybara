@@ -1,6 +1,10 @@
-<h1>Modifier l'article</h1>
-<%= render "form", article: @article %>
+<div class="homepage text-center fs-4 my-5">
+  <p>Modifier l'article</p>
+</div>
+<div style="padding: 0px 20px 0px 20px">
+  <%= render "form", article: @article %>
+</div>
 <br>
-<div class="col">
-  <button onclick="history.back()" class='btn btn-warning text-white' style="border-radius: 25px; color: white;">Retour</button>
+<div class="col d-flex justify-content-center" style="margin-bottom: 20px;">
+  <button onclick="history.back()" class='btn btn-secondary text-white' style="border-radius: 25px; color: white; width: 130px">Retour</button>
 </div>
