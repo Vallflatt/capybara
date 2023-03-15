@@ -5,14 +5,14 @@
   <div class="row">
     <% @articles.each do |article| %>
       <div class="col-12">
-        <div class="card mt-3 mb-4" style=" border-radius: 5px; padding: 8px;">
+        <div class="card m-3 rounded p-3">
           <img src="<%= cl_image_path article.photo.key %>" class="article-picture">
-          <div class="bg-light card mt-2" style=" border-radius: 5px; padding: 8px;">
+          <div class="bg-light card mt-2 rounded p-3">
             <%= article.name %>
             <%= article.description %>
           </div>
-          <div class="text-center m-3">
-            <%= link_to "Voir l'article", article_path(article.id), class: "btn btn-warning text-white", style: "border-radius: 25px; color: white;" %>
+          <div class="text-center mt-3">
+            <%= link_to "Voir l'article", article_path(article.id), class: "btn btn-warning text-white rounded-pill" %>
           </div>
         </div>
       </div>
