@@ -2,7 +2,7 @@
   <div class="container-fluid d-flex" style="height: 60px">
     <%= link_to root_path, class: "navbar-brand" do %>
     <% end %>
-    <div class="p-2" style="margin-top: 12px; font-size: 14px">
+    <div class="p-2 fs-6" style="margin-top: 12px;">
       <% if user_signed_in? %>
         <p>👋🏻 Bonjour Capy <strong><%= current_user.username %></strong></p>
       <% end %>
