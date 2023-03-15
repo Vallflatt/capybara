@@ -28,7 +28,7 @@
         <%= f.input :message, label: false, placeholder: "Message pour Capy #{@booking.user.username}", input_html:{ autofocus: true } %>
         <div class="form-row d-flex justify-content-around date-fields-container mt-2 mb-4">
           <% if @booking.status == "pending" %>
-            <%= f.collection_radio_buttons :status, [[:confirmed, ' Accepter'], [:declined, 'Refuser']], :first, :last, item_wrapper_class: 'form-check-inline mr-4', wrapper_html: { class: 'mt-3' } %>
+            <%= f.collection_radio_buttons :status, [[:confirmed, 'Accepter'], [:declined, 'Refuser']], :first, :last, item_wrapper_class: 'form-check-inline mr-4', wrapper_html: { class: 'mt-3' } %>
           <% elsif @booking.status == "confirmed" %>
             <%= f.collection_radio_buttons :status, [[:finished, 'Terminer'], [:declined, 'Refuser']], :first, :last, item_wrapper_class: 'form-check-inline mr-4', wrapper_html: { class: 'mt-3' }%>
           <% end %>
