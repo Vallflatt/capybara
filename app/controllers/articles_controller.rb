@@ -20,9 +20,10 @@ class ArticlesController < ApplicationController
     result = Geocoder.search(params["address"])
     location = result.length > 0 && result[0].data ? result[0].data : nil
     # Fetch DB with LIKE search param and NEAR coordinates Load the result instance variable
+    search_value = @search.strip.gsub(/ /, "%")
     if @search != '' && !location.nil?
       @user_location[:location] = [location["lon"], location["lat"]]
-      @articles = Article.where("name ILIKE ? OR description ILIKE ?", "%#{@search}%", "%#{@search}%")
+      @articles = Article.where("name ILIKE ? OR description ILIKE ?", "%#{search_value}%", "%#{search_value}%")
                          .near([location["lat"], location["lon"]], 30)
     end
 

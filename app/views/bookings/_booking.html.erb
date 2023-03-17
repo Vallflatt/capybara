@@ -1,21 +1,27 @@
-<% bookings.each do |booking| %>
-  <div class="card rounded p-3 mt-3 col-12 col-md-6">
-    <a href="<%= booking_path(booking.id) %>">
-      <div class="carousel-item-container">
-        <div class="w-50">
-          <img src="<%= cl_image_path booking.article.photo.key %>" class="d-block w-100" alt="...">
+<% if bookings.length > 0 %>
+  <% bookings.each do |booking| %>
+    <div class="card rounded p-3 mt-3 col-12 col-md-6">
+      <a href="<%= booking_path(booking.id) %>">
+        <div class="carousel-item-container">
+          <div class="w-50">
+            <img src="<%= cl_image_path booking.article.photo.key %>" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item-info">
+            <div class="carousel-item-name mb-1 fs-6"><%= booking.article.name %></div>
+            <% if current_user.username != booking.user.username%>
+              <div class="carousel-item-description mb-1 fs-6">Demande de: <%= booking.user.username %></div>
+            <% end %>
+            <div class="carousel-item-description mb-1 fs-6">Du: <%= booking.start_date.strftime('%d.%m.%Y') %> au <%= booking.end_date.strftime('%d.%m.%Y') %></div>
+            <% if current_user.username == booking.user.username%>
+              <div class="carousel-item-description mb-1 fs-6">A rendre à: <%= booking.article.user.username %></div>
+            <% end %>
+          </div>
         </div>
-        <div class="carousel-item-info">
-          <div class="carousel-item-name mb-1 fs-6"><%= booking.article.name %></div>
-          <% if current_user.username != booking.user.username%>
-            <div class="carousel-item-description mb-1 fs-6">Demande de: <%= booking.user.username %></div>
-          <% end %>
-          <div class="carousel-item-description mb-1 fs-6">Du: <%= booking.start_date.strftime('%d.%m.%Y') %> au <%= booking.end_date.strftime('%d.%m.%Y') %></div>
-          <% if current_user.username == booking.user.username%>
-            <div class="carousel-item-description mb-1 fs-6">A rendre à: <%= booking.article.user.username %></div>
-          <% end %>
-        </div>
-      </div>
-    </a>
-  </div>
+      </a>
+    </div>
+  <% end %>
+<% else %>
+<div class="col-12">
+  <p class="empty-bookings">Rien à afficher</p>
+</div>
 <% end %>
